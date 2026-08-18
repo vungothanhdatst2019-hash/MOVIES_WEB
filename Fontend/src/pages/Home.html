@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" >
+    <link rel="stylesheet" type="text/css" href="../css/container.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../services/movieService.js"></script>
+    <script src="../logic/index.js" defer></script>
+</head>
+
+<body>
+        <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="#">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu">
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Phim Lẻ</a></li>
+                    <li><a href="#">Phim Chiếu Rạp</a></li>
+                    <li><a href="#">Liên Hệ</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form action="#" id="search-box" >
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text">
+                <button type="submit" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </input>
+                </form>
+            </div>
+        </div>
+        <div class="between">
+            <div class="banner">
+                <img src="../image/banner_one.png" alt="Banner" class="banner-image">
+                <img src="../image/banner_2.png" alt="Banner" class="banner-image">
+                <img src="../image/banner_3.jpg" alt="Banner" class="banner-image">
+                <img src="../image/banner_4.jpg" alt="Banner" class="banner-image">
+            </div>
+            <div class="banner-controls">
+                <button class="banner-button" id="prev-button"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="banner-button" id="next-button"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <main class="main-between">
+                <div class="movie-list" id="movie-list">
+                    <h2 class="movie-list-title">PHIM MỚI CẬP NHẬT</h2>
+                    <!-- Danh sách phim sẽ được chèn vào đây bằng JavaScript -->
+                </div>
+        </main>
+</body>
+</html>

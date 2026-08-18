@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    min-height: 100vh;
+}
+.between{
+    background-color: #1a2332;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner{
+    width: 90%;
+    height: 635px;
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+.banner img{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    margin-right: 80px;
+    object-fit: cover;
+    box-shadow: 0 50px 80px rgba(23, 20, 20, 0.24);
+}
+.banner-controls {
+    background-color: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    pointer-events: none; /* Tránh cản trở chuột vào banner */
+    z-index: 10;
+}
+.banner-button {
+    pointer-events: auto; /* Cho phép bấm nút */
+    background-color:transparent ; /* Nền tối bán trong suốt */
+    color: rgb(247, 243, 243); /* Màu chữ trắng */
+    border: none;
+    width: 40px;          /* Tăng kích thước nút */
+    height: 80px;
+    font-size: 32px;      /* Tăng kích thước icon */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.banner-button:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Nền tối hơn khi di chuột vào */
+    transform: scale(1.1); /* Phóng to nhẹ khi di chuột vào */
+}
+.main-between{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a2332;
+}
+.movie-list {
+    width: 90%;
+    background-color: #1a2332;
+}
+.movie-list-title {
+    font-size: 25px;
+    padding: 30px 0;
+    color: #ffffff;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Phim</title>
+    <link rel="stylesheet" href="../css/watch.css">
+</head>
+<body>
+    <!-- Navbar tái sử dụng từ trang chủ -->
+    <header class="container">
+        <a href="Home.html" class="logo-link">
+            <h2 style="color: white;">MOVIE WEB</h2>
+        </a>
+    </header>
+
+    <main class="watch-container">
+        <!-- Khung trình chiếu linh hoạt (Video/Iframe) -->
+        <div class="video-player-wrapper" id="player-container">
+            <!-- JavaScript sẽ tự động chèn <video> hoặc <iframe> vào đây -->
+        </div>
+
+        <!-- Thông tin chi tiết phim -->
+        <div class="movie-details">
+            <h1 id="movie-title">Đang tải tên phim...</h1>
+            <div class="movie-meta">
+                <span id="movie-year">----</span> | 
+                <span id="movie-category">----</span>
+            </div>
+            <h2>Tóm tắt Phim</h2>
+            <p id="movie-description" class="description">
+                Đang tải mô tả phim...
+            </p>
+        </div>
+    </main>
+    <script src="../services/movieService.js"></script>    
+    <script src="../logic/watch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</body>
+</html>
