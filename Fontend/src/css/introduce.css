@@ -1,0 +1,152 @@
+body {
+    background-color: #111827;
+    color: #ffffff;
+}
+
+.intro-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 2px;
+}
+
+/* Banner Background */
+.banner-wrapper {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), #111827);
+}
+
+.play-banner-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #ff5722;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
+}
+.play-banner-btn:hover {
+    background: #b63b15;
+}
+
+/* Poster & Info Overlay */
+.intro-content {
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    margin-top: -160px;
+    position: relative;
+    z-index: 10;
+}
+
+.poster-box img {
+    width: 210px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+}
+
+.info-box {
+    flex: 1;
+    margin-top: 100px;
+}
+
+.info-box h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.original-title {
+    color: #9ca3af;
+    font-size: 16px;
+    margin: 6px 0 16px 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.breadcrumb .active {
+    color: #6b7280;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-trailer {
+    background: #27272a;
+    color: white;
+    border: 1px solid #3f3f46;
+}
+
+.btn-watch {
+    background: #ff5722;
+    color: white;
+}
+
+/* Highlight Box */
+.highlight-box {
+    border: 1px dashed #ff5722;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background: rgba(255, 87, 34, 0.05);
+    font-size: 15px;
+}
+
+.highlight-box a {
+    color: #ffffff;
+    font-weight: bold;
+}
+.summary-box {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #1f2937;
+}
+.description{
+    line-height: 1.6;
+    color: #d1d5db;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+}

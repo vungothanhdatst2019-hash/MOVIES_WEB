@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xem Phim</title>
     <link rel="stylesheet" href="../css/watch.css">
+    <link rel="stylesheet" href="../css/container.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Xem Phim</title>
+    <script src="../services/movieService.js" defer></script>
+    <script src="../logic/watch.js" defer></script>
+    <script src="../utils/formatters.js" defer></script>
+    <script src="../utils/watchDragScroll.js" defer></script>
+    <script src="../logic/searchSuggest.js" defer></script>
 </head>
 <body>
-    <!-- Navbar tái sử dụng từ trang chủ -->
-    <header class="container">
-        <a href="Home.html" class="logo-link">
-            <h2 style="color: white;">MOVIE WEB</h2>
-        </a>
-    </header>
-
+    <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="../pages/Home.html">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu">
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Phim Lẻ</a></li>
+                    <li><a href="#">Phim Chiếu Rạp</a></li>
+                    <li><a href="#">Phim Hoạt Hình</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form  id="search-box" class="search-box-wrapper" onsubmit="return false;" >
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </input>
+                </form>
+                <div id="search-dropdown" class="search-dropdown"></div>
+            </div>
+        </div>
     <main class="watch-container">
         <!-- Khung trình chiếu linh hoạt (Video/Iframe) -->
         <div class="video-player-wrapper" id="player-container">
@@ -23,19 +57,23 @@
 
         <!-- Thông tin chi tiết phim -->
         <div class="movie-details">
-            <h1 id="movie-title">Đang tải tên phim...</h1>
+            <hr>
+            <h1 id="movie-title" class="">Đang tải tên phim...</h1>
             <div class="movie-meta">
                 <span id="movie-year">----</span> | 
                 <span id="movie-category">----</span>
             </div>
+            <div class="episodes-wrapper">
+                <hr>
+                <h2>Danh Sách Tập</h2>
+                <div id="episodes-container" class="episodes-container"></div>
+            </div>
+            <hr>
             <h2>Tóm tắt Phim</h2>
             <p id="movie-description" class="description">
                 Đang tải mô tả phim...
             </p>
         </div>
     </main>
-    <script src="../services/movieService.js"></script>    
-    <script src="../logic/watch.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </body>
 </html>

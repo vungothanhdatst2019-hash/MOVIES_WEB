@@ -1,80 +1,157 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Lấy ID từ URL (?id=...), nếu không có thì mặc định lấy "75219" để test
+/**
+ * File: js/logic/watch.js
+ * Chức năng: Xử lý phát Video và Chọn Tập cho trang xem phim
+ */
+/**
+ * Hàm phát video linh hoạt (Xử lý Player Embed, HLS .m3u8 và MP4)
+ */
+function renderVideoPlayer(videoSrc, playerContainer) {
+    if (!videoSrc) {
+        playerContainer.innerHTML = `<div class="player-message">Bộ phim này hiện chưa có video!</div>`;
+        return;
+    }
+
+    // Trường hợp 1: Link Player / Embed / Iframe
+    if (videoSrc.includes("player.phimapi.com") || videoSrc.includes("embed") || videoSrc.includes("iframe") || videoSrc.includes("/player/")) {
+        playerContainer.innerHTML = `
+            <iframe 
+                src="${videoSrc}" 
+                allowfullscreen 
+                allow="autoplay; encrypted-media; picture-in-picture" 
+                style="width: 100%; height: 100%; border: none;"
+                scrolling="no"
+                referrerpolicy="no-referrer">
+            </iframe>`;
+    } 
+    // Trường hợp 2: File luồng HLS (.m3u8)
+    else if (videoSrc.includes(".m3u8")) {
+        playerContainer.innerHTML = `<video id="video-player" controls autoplay style="width:100%; height:100%;"></video>`;
+        const video = document.getElementById("video-player");
+        const proxyUrl = `http://localhost:5000/api/movies/proxy/stream?url=${encodeURIComponent(videoSrc)}`;
+
+        if (window.Hls && Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(proxyUrl);
+            hls.attachMedia(video);
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = proxyUrl;
+        }
+    } 
+    // Trường hợp 3: File MP4
+    else {
+        playerContainer.innerHTML = `
+            <video controls autoplay style="width: 100%; height: 100%;">
+                <source src="${videoSrc}" type="video/mp4">
+            </video>`;
+    }
+}
+
+/**
+ * Hiển thị các nút bấm chọn Tập Phim (Tập 1, Tập 2...)
+ */
+function renderEpisodeButtons(episodes, playerContainer, episodesContainer) {
+    episodesContainer.innerHTML = "";
+
+    episodes.forEach((ep, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = ep.name || `Tập ${index + 1}`;
+        btn.style.cssText = "padding: 8px 16px; background: #333; color: white; border: 1px solid #555; border-radius: 4px; cursor: pointer; transition: 0.2s;";
+
+        btn.addEventListener("click", () => {
+            // Reset tất cả các nút về màu xám ban đầu
+            document.querySelectorAll("#episodes-container button").forEach(b => {
+                b.style.background = "#333";
+            });
+            btn.style.background = "#e50914";
+            
+            // Phát video của tập đó
+            renderVideoPlayer(ep.videoUrl, playerContainer);
+        });
+
+        episodesContainer.appendChild(btn);
+    });
+
+    // Mặc định phát ngay Tập 1
+    if (episodes.length > 0) {
+        renderVideoPlayer(episodes[0].videoUrl, playerContainer);
+        if (episodesContainer.children[0]) {
+            episodesContainer.children[0].style.background = "#e50914";
+    }
+    }   
+}
+
+/**
+ * Hàm khởi tạo chính cho trang Watch
+ */
+async function initWatchPage() {
     const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get("id") || "969681"; 
+    const movieId = urlParams.get("id");
 
     const playerContainer = document.getElementById("player-container");
+    const episodesContainer = document.getElementById("episodes-container");
 
     try {
-        // 2. Gọi API thông qua movieService.js
         const movie = await getMovieById(movieId);
-        console.log("✅ Đã lấy dữ liệu phim thành công:", movie);
 
-        // 3. Đổ thông tin phim ra giao diện HTML
-        document.getElementById("movie-title").textContent = movie.title || "Chưa có tên phim";
-        document.getElementById("movie-year").textContent = movie.year || "2026";
-        document.getElementById("movie-category").textContent = movie.category || "Hành Động";
-        document.getElementById("movie-description").textContent = movie.description || "Đang cập nhật nội dung...";
-
-        // 4. Xử lý Trình phát Video
-        const videoSrc = movie.videoUrl;
-
-        if (!videoSrc) {
-            playerContainer.innerHTML = `<div style="color:white; display:flex; justify-content:center; align-items:center; height:100%;">Bộ phim này hiện chưa có link video!</div>`;
+        if (!movie) {
+            document.getElementById("movie-title").textContent = "Không tìm thấy phim!";
             return;
         }
 
-        // =========================================================
-        // TRƯỜNG HỢP 1: File luồng HLS (.m3u8) -> Chạy Hls.js qua Proxy Backend
-        // =========================================================
-        if (videoSrc.includes(".m3u8")) {
-            playerContainer.innerHTML = `<video id="video-player" controls autoplay style="width:100%; height:100%;"></video>`;
-            const video = document.getElementById("video-player");
+        // Đổ thông tin chi tiết phim
+        document.getElementById("movie-title").textContent = movie.title || "Chưa có tên";
+        document.getElementById("movie-year").textContent = movie.year || "2026";
+        document.getElementById("movie-category").textContent = parseCategories(movie.category); // Dùng hàm từ formatters.js
+        document.getElementById("movie-description").textContent = movie.description || "Chưa có mô tả.";
 
-            // Bọc link .m3u8 gốc qua API Proxy Backend để "vượt rào" bảo vệ
-            const proxyUrl = `http://localhost:5000/api/movies/proxy/stream?url=${encodeURIComponent(videoSrc)}`;
+        // Chuẩn hóa danh sách tập phim
+        const episodes = movie.episodes && movie.episodes.length > 0 
+            ? movie.episodes 
+            : [{ name: "Tập Full", videoUrl: movie.videoUrl }];
 
-            if (window.Hls && Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(proxyUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video.play().catch(err => console.log("Trình duyệt chặn autoplay:", err));
-                });
-            } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-                // Hỗ trợ riêng cho trình duyệt Safari (macOS / iOS)
-                video.src = proxyUrl;
-            } else {
-                playerContainer.innerHTML = `<div style="color:white; display:flex; justify-content:center; align-items:center; height:100%;">Trình duyệt của bạn không hỗ trợ phát file .m3u8!</div>`;
-            }
-        } 
-        // =========================================================
-        // TRƯỜNG HỢP 2: Link nhúng (Iframe / Embed / Player)
-        // =========================================================
-        else if (videoSrc.includes("embed") || videoSrc.includes("iframe") || videoSrc.includes("player")) {
-            playerContainer.innerHTML = `
-                <iframe 
-                    src="${videoSrc}" 
-                    allowfullscreen 
-                    allow="autoplay; encrypted-media" 
-                    scrolling="no"
-                    referrerpolicy="no-referrer">
-                </iframe>`;
-        } 
-        // =========================================================
-        // TRƯỜNG HỢP 3: File MP4 trực tiếp
-        // =========================================================
-        else {
-            playerContainer.innerHTML = `
-                <video controls autoplay style="width: 100%; height: 100%;">
-                    <source src="${videoSrc}" type="video/mp4">
-                    Trình duyệt của bạn không hỗ trợ phát video MP4.
-                </video>`;
-        }
+        // Render nút chọn tập và phát phim
+        renderEpisodeButtons(episodes, playerContainer, episodesContainer);
 
     } catch (error) {
-        console.error("❌ Lỗi khi tải phim:", error);
-        document.getElementById("movie-title").textContent = "Không thể tải được bộ phim này!";
-        document.getElementById("movie-description").textContent = "Vui lòng kiểm tra lại kết nối Server Node.js hoặc ID phim.";
+        console.error("❌ Lỗi trang xem phim:", error);
     }
+}
+async function initWatchPage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get("id");
+
+    const playerContainer = document.getElementById("player-container");
+    const episodesContainer = document.getElementById("episodes-container");
+
+    // 🌟 Kích hoạt tính năng kéo cuộn DỌC riêng từ file verticalDragScroll.js
+    if (episodesContainer) {
+        enableVerticalDragScroll(episodesContainer);
+    }
+
+    try {
+        const movie = await getMovieById(movieId);
+
+        if (!movie) {
+            document.getElementById("movie-title").textContent = "Không tìm thấy phim!";
+            return;
+        }
+
+        document.getElementById("movie-title").textContent = movie.title || "Chưa có tên";
+        document.getElementById("movie-year").textContent = movie.year || "2026";
+        document.getElementById("movie-category").textContent = parseCategories(movie.category);
+        document.getElementById("movie-description").textContent = movie.description || "Chưa có mô tả.";
+
+        const episodes = movie.episodes && movie.episodes.length > 0 
+            ? movie.episodes 
+            : [{ name: "Tập Full", videoUrl: movie.videoUrl }];
+
+        renderEpisodeButtons(episodes, playerContainer, episodesContainer);
+
+    } catch (error) {
+        console.error("❌ Lỗi trang xem phim:", error);
+    }
+}
+window.addEventListener("popstate", () => {
+    window.location.reload();
 });
+document.addEventListener("DOMContentLoaded", initWatchPage);

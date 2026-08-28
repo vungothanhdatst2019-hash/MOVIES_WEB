@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" >
     <link rel="stylesheet" type="text/css" href="../css/container.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../services/movieService.js"></script>
-    <script src="../logic/index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../services/movieService.js" defer></script>
+    <script src="../logic/banner.js" defer></script>
+    <script src="../logic/bannerSlide.js" defer></script>
+    <script src="../logic/home_list.js" defer></script>
+    <script src="../components/movieCard.js" defer></script>
+    <script src="../utils/formatters.js" defer></script>    
+    <script src="../utils/dragScroll.js" defer></script>
+    <script src="../logic/searchSuggest.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +24,7 @@
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fa-solid fa-bars"></i>
                 </div>
-                <a href="#">
+                <a href="../pages/Home.html">
                     <img src="../image/Logo.png" alt="Logo" class="logo">
                 </a>
                 <ul class="menu">
@@ -35,34 +39,61 @@
                     </li>
                     <li><a href="#">Phim Lẻ</a></li>
                     <li><a href="#">Phim Chiếu Rạp</a></li>
-                    <li><a href="#">Liên Hệ</a></li>
+                    <li><a href="#">Phim Hoạt Hình</a></li>
                 </ul>
             </div>
             <div class="right-nav">
-                <form action="#" id="search-box" >
-                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text">
-                <button type="submit" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </input>
+                <form id="search-box" class="search-box-wrapper" onsubmit="return false;">
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="search-dropdown" class="search-dropdown"></div>
                 </form>
             </div>
         </div>
-        <div class="between">
-            <div class="banner">
-                <img src="../image/banner_one.png" alt="Banner" class="banner-image">
-                <img src="../image/banner_2.png" alt="Banner" class="banner-image">
-                <img src="../image/banner_3.jpg" alt="Banner" class="banner-image">
-                <img src="../image/banner_4.jpg" alt="Banner" class="banner-image">
-            </div>
-            <div class="banner-controls">
-                <button class="banner-button" id="prev-button"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="banner-button" id="next-button"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </div>
-        <main class="main-between">
-                <div class="movie-list" id="movie-list">
-                    <h2 class="movie-list-title">PHIM MỚI CẬP NHẬT</h2>
-                    <!-- Danh sách phim sẽ được chèn vào đây bằng JavaScript -->
+        <div class="hero-banner" id="hero-banner">
+            <div class="banner-overlay"></div>
+        
+            <div class="banner-content">
+                <h1 id="banner-title" class="banner-title">Đang tải...</h1>
+            
+                <!-- Badges thông tin -->
+                <div class="banner-badges">
+                    <span class="badge badge-year" id="banner-year">2026</span>
                 </div>
+
+                <!-- Thể loại -->
+                <div class="banner-tags" id="banner-tags">
+                <!-- JavaScript sẽ render tag thể loại vào đây -->
+                </div>
+
+                <!-- Tóm tắt -->
+                <p class="banner-description" id="banner-description">
+                Đang tải mô tả phim...
+                </p>
+
+                <!-- Nút bấm hành động -->
+                <div class="banner-actions">
+                    <a href="#" id="banner-play-btn" class="btn-circle btn-play" title="Xem ngay">
+                        <i class="fa-solid fa-play"></i>
+                    </a>
+                    <a href="#" id="banner-info-btn" class="btn-circle btn-info" title="Chi tiết">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+                    </button>
+                </div>
+        </div>
+
+        <!-- Danh sách Thumbnail Phim Nổi Bật ở góc dưới bên phải -->
+        <div class="banner-thumbnails" id="banner-thumbnails">
+            <!-- JavaScript sẽ đổ danh sách ảnh thumbnail vào đây -->
+        </div>
+    </div>
+        <main>
+            <section class="movie-section">
+                <h2>PHIM MỚI ĐỀ CỬ</h2>
+                <!-- Nơi JavaScript sẽ tự động đổ các div thẻ phim vào đây -->
+                <div id="movie-list" class="movie-grid"></div>
+            </section>
         </main>
 </body>
 </html>

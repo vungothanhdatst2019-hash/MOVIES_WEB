@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tìm Kiếm</title>
+        <link rel="stylesheet" type="text/css" href="../css/container.css" >
+        <link rel="stylesheet" type="text/css" href="../css/search.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../services/movieService.js" defer></script>
+        <script src="../utils/formatters.js" defer></script>
+        <script src="../components/movieCard.js" defer></script>
+        <script src="../logic/searchPage.js" defer></script>
+        <script src="../logic/searchSuggest.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="../pages/Home.html">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu">
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Phim Lẻ</a></li>
+                    <li><a href="#">Phim Chiếu Rạp</a></li>
+                    <li><a href="#">Phim Hoạt Hình</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form id="search-box" class="search-box-wrapper" onsubmit="return false;">
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="search-dropdown" class="search-dropdown"></div>
+                </form>
+            </div>
+        </div>
+        <main class="search-page">
+            <div class="search-page-container">
+                <h1 id="search-title" class="search-title">
+                Kết quả tìm kiếm theo từ khóa: <span id="keyword-display"></span>
+                </h1>
+                <div class="filter">
+                    <button id="filter-button" class="filter-button">
+                        <i class="fa-solid fa-filter"></i> Bộ lọc
+                </div>
+            </div>
+            <div id="search-movie-grid" class="movie-grid">
+            </div>
+        </main>
+    
+    </body>
+</html>

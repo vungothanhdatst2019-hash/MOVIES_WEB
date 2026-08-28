@@ -1,7 +1,11 @@
 body {
-    background-color: #0b1120;
+    background-color: #1a2332;
     color: #ffffff;
-    font-family: Arial, sans-serif;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #0b1120;
 }
 
 .watch-container {
@@ -17,7 +21,6 @@ body {
     background-color: #000;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .video-player-wrapper video {
@@ -33,24 +36,58 @@ body {
     border-radius: 8px;
 }
 
-.movie-details h1 {
+.movie-details h2{
     font-size: 24px;
-    margin-bottom: 10px;
     color: #fff;
+    margin:20px 15px 0px 0px;
 }
 
 .movie-meta {
-    font-size: 14px;
+    font-size: 16px;
     color: #9ca3af;
     margin-bottom: 15px;
+    font-family: Arial, sans-serif;
 }
 
 .description {
     line-height: 1.6;
     color: #d1d5db;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
 }
 .video-player-wrapper iframe {
     width: 100%;
     height: 100%;
     border: none;
+}
+.episodes-wrapper{
+    margin-top: 20px;
+}
+.episodes-wrapper h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.episodes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#episodes-container {
+    max-height: 300px;
+    overflow-y: auto;         /* Cho phép cuộn dọc */
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    background-color: #1a2332;
+    border-radius: 8px;
+    cursor: grab;
+    user-select: none;
+    -ms-overflow-style: none;  /* Ẩn thanh cuộn trên IE và Edge */
+    scrollbar-width: none;     /* Ẩn thanh cuộn trên Firefox */
+}
+#episodes-container::-webkit-scrollbar {
+    display: none;
 }

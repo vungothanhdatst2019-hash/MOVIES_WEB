@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/introduce.css">
+        <link rel="stylesheet" href="../css/container.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="../services/movieService.js" defer></script>
+        <script src="../logic/introduce.js" defer></script>
+        <script src="../utils/formatters.js" defer></script>
+        <title>Giới Thiệu</title>
+    </head>
+<body>
+        <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="../pages/Home.html">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu">
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        <li><a href="#">Hài Hước</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Phim Lẻ</a></li>
+                    <li><a href="#">Phim Chiếu Rạp</a></li>
+                    <li><a href="#">Phim Hoạt Hình</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form action="#" id="search-box" >
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text">
+                <button type="submit" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </input>
+                </form>
+            </div>
+        </div>
+        <main class="intro-container">
+        <!-- Banner Background phủ mờ -->
+        <div class="banner-wrapper" id="banner-wrapper">
+            <div class="banner-overlay"></div>
+            <a href="#" id="play-btn-banner" class="play-banner-btn">
+                <i class="fa-solid fa-play"></i>
+            </a>
+        </div>
+
+        <!-- Nội dung chính: Poster & Thông tin -->
+        <div class="intro-content">
+            <div class="poster-box">
+                <img id="movie-poster" src="" alt="Poster">
+            </div>
+
+            <div class="info-box">
+                <h1 id="movie-title">Đang tải tên phim...</h1>
+                <p id="movie-original-title" class="original-title">---</p>
+
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="Home.html">Trang chủ</a> / 
+                    <span id="movie-category">Phim</span> / 
+                    <span id="breadcrumb-title" class="active">---</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-action btn-trailer">
+                        <i class="fa-solid fa-film"></i> Trailer
+                    </button>
+                    <a href="#" id="watch-now-btn" class="btn-action btn-watch">
+                        <i class="fa-solid fa-play"></i> Xem Phim
+                    </a>
+                </div>
+
+                <!-- Highlight Box -->
+                <div class="highlight-box">
+                    Xem tập mới nhất tại 👉 <a href="#" id="highlight-link">--</a>
+                </div>
+                <div class="summary-box">
+                <h2>Tóm tắt Phim</h2>
+                <p id="movie-description" class="description">Đang tải mô tả phim...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>         
+</html>
