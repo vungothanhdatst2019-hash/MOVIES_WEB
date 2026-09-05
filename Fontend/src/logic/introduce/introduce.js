@@ -1,6 +1,6 @@
 /**
  * File: js/logic/introduce.js
- * Chức năng: Đổ dữ liệu phim và backgroundUrl cho trang introduce.html
+ * Chức năng: Đổ dữ liệu phim, backgroundUrl và danh sách diễn viên cho trang introduce.html
  */
 async function initIntroducePage() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -40,9 +40,11 @@ async function initIntroducePage() {
         document.getElementById("movie-description").textContent = 
         movie.description || movie.content || "Nội dung phim đang được cập nhật...";
 
+        // 🌟 6. Hiển thị danh sách diễn viên từ trường performer
+        renderPerformers(movie.performer);
+
     } catch (error) {
         console.error("❌ Lỗi nạp dữ liệu trang introduce:", error);
     }
 }
-
 document.addEventListener("DOMContentLoaded", initIntroducePage);

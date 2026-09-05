@@ -1,6 +1,7 @@
 body {
     background-color: #111827;
     color: #ffffff;
+    overflow-x: hidden; /* 🌟 CHẶN THANH CUỘN NGANG CỦA TOÀN TRANG */
 }
 
 .intro-container {
@@ -8,6 +9,9 @@ body {
     margin: 0 auto;
     position: relative;
     margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* 🌟 ÉP CÁC PHẦN TỬ CON KHÔNG TRÀN RA KHỎI CONTAINER */
 }
 
 /* Banner Background */
@@ -67,6 +71,7 @@ body {
 .info-box {
     flex: 1;
     margin-top: 100px;
+    min-width: 0; /* 🌟 Giúp flexbox con không bị đẩy phình rộng */
 }
 
 .info-box h1 {
@@ -149,4 +154,110 @@ body {
     color: #d1d5db;
     font-family: Arial, sans-serif;
     margin-top: 10px;
+}
+
+/* ==========================================
+   KHỐI DIỄN VIÊN (PERFORMER SLIDER)
+   ========================================== */
+.cast-section {
+    margin: 30px 0;
+    color: #ffffff;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cast-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cast-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Container chứa danh sách trượt */
+.cast-slider-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 10px 0;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-x;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cast-slider-container::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.cast-slider-container:active {
+    cursor: grabbing;
+}
+
+/* Thẻ diễn viên */
+.cast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+    max-width: 110px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.cast-avatar-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #1e293b;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+    pointer-events: none; /* Tránh kẹt sự kiện trên ảnh */
+}
+
+.cast-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    pointer-events: none;
+}
+
+.cast-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cast-role {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    pointer-events: none;
 }

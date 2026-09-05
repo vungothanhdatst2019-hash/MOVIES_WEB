@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tìm Kiếm</title>
+        <link rel="stylesheet" type="text/css" href="../css/filter.css" >
         <link rel="stylesheet" type="text/css" href="../css/container.css" >
         <link rel="stylesheet" type="text/css" href="../css/search.css" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
@@ -11,8 +12,11 @@
         <script src="../services/movieService.js" defer></script>
         <script src="../utils/formatters.js" defer></script>
         <script src="../components/movieCard.js" defer></script>
-        <script src="../logic/searchPage.js" defer></script>
-        <script src="../logic/searchSuggest.js" defer></script>
+        <script src="../logic/search/searchSuggest.js" defer></script>
+        <script src="../logic/search/searchPage.js" defer></script>
+        <script src="../logic/filter/fillterInformation.js" defer></script>
+        <script src="../logic/filter/filter.js" defer></script>
+  
     </head>
     <body>
         <div class="container">
@@ -59,6 +63,70 @@
             <div id="search-movie-grid" class="movie-grid">
             </div>
         </main>
-    
+        <div id="filter-modal" class="filter-modal">
+            <div class="filter-modal-content">
+                <div class="filter-modal-header">
+                    <h2>Bộ Lọc Phim</h2>
+                    <span id="close-filter-modal" class="close-modal-btn">&times;</span>
+                </div>
+                <!-- Cấu trúc mới sau khi đã lược bỏ 4 mục: Chủ đề, Trạng thái, Sắp xếp, Hình thức -->
+                <div class="filter-modal-content">
+
+                <!-- 1. Quốc gia -->
+                    <div class="filter-row">
+                        <div class="filter-label">Quốc gia:</div>
+                        <div class="filter-options" id="filter-country">
+                        <span class="filter-option active" data-value="">Tất cả</span>
+                        <!-- Dòng danh sách các quốc gia -->
+                        </div>
+                    </div>
+
+                                <!-- 2. Năm -->
+                    <div class="filter-row">
+                        <div class="filter-label">Năm:</div>
+                        <div class="filter-options" id="filter-year">
+                        <span class="filter-option active" data-value="">Tất cả</span>
+                        <span class="filter-option" data-value="2026">2026</span>
+                        <span class="filter-option" data-value="2025">2025</span>
+                        <span class="filter-option" data-value="2024">2024</span>
+                            <!-- Bổ sung ô nhập năm nếu cần -->
+                        </div>
+                    </div>
+                                          <!-- 4. Thứ tự -->
+                    <div class="filter-row">
+                        <div class="filter-label">Thứ tự:</div>
+                        <div class="filter-options" id="filter-order">
+                        <span class="filter-option active" data-value="desc">Giảm dần</span>
+                        <span class="filter-option" data-value="asc">Tăng dần</span>
+                        </div>
+                    </div>
+
+                                <!-- 5. Loại phim -->
+                    <div class="filter-row">
+                        <div class="filter-label">Loại phim:</div>
+                        <div class="filter-options" id="filter-type">
+                        <span class="filter-option active" data-value="">Tất cả</span>
+                        <span class="filter-option" data-value="hoathinh">Hoạt Hình</span>
+                        <span class="filter-option" data-value="series">Phim Bộ</span>
+                        <span class="filter-option" data-value="single">Phim Lẻ</span>
+                        </div>
+                    </div>
+                         <!-- 6. Thể loại -->
+                    <div class="filter-row">
+                        <div class="filter-label">Thể loại:</div>
+                        <div class="filter-options" id="filter-genre">
+                        <span class="filter-option active" data-value="">Tất cả</span>
+                            <!-- Dòng danh sách các thể loại -->
+                        </div>
+                    </div>
+
+                        <!-- Nút hành động -->
+                    <div class="filter-actions">
+                        <button id="btn-apply-filter" class="btn-primary">Lọc kết quả</button>
+                        <button id="btn-reset-filter" class="btn-secondary">Xóa bộ lọc</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

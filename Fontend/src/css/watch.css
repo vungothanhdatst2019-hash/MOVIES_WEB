@@ -91,3 +91,97 @@ hr {
 #episodes-container::-webkit-scrollbar {
     display: none;
 }
+/* ==========================================
+   KHỐI DIỄN VIÊN (PERFORMER SLIDER)
+   ========================================== */
+.cast-section {
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.cast-section h2 {
+    font-size: 24px;
+    color: #fff;
+    margin: 20px 0 15px 0;
+}
+
+.cast-slider-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 10px 0;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-x;
+    
+    /* Ẩn thanh cuộn */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cast-slider-container::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.cast-slider-container:active {
+    cursor: grabbing;
+}
+
+.cast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+    max-width: 110px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.cast-avatar-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    background-color: #1e293b;
+    border: 2px solid transparent;
+    pointer-events: none;
+}
+
+.cast-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none !important;
+    user-drag: none !important;
+    pointer-events: none;
+}
+
+.cast-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    pointer-events: none;
+}
+.cast-role {
+    font-size: 11px;
+    color: #94a3b8;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    pointer-events: none;
+}

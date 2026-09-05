@@ -8,16 +8,13 @@ function renderMovieList(movies, container) {
         container.innerHTML = `<p style="color: white;">Chưa có bộ phim nào!</p>`;
         return;
     }
-
     const fragment = document.createDocumentFragment();
-
     movies.forEach(movie => {
         const cardElement = createMovieCard(movie);
         fragment.appendChild(cardElement);
     });
     container.appendChild(fragment);
 }
-
 /**
  * Khởi chạy trang chủ Home
  */

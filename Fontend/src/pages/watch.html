@@ -11,10 +11,12 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Xem Phim</title>
     <script src="../services/movieService.js" defer></script>
-    <script src="../logic/watch.js" defer></script>
+    <script src="../logic/watch/watch.js" defer></script>
     <script src="../utils/formatters.js" defer></script>
     <script src="../utils/watchDragScroll.js" defer></script>
-    <script src="../logic/searchSuggest.js" defer></script>
+    <script src="../logic/search/searchSuggest.js" defer></script>
+    <script src="../logic/introduce/introducePerformer.js"></script>
+    <script src="../logic/introduce/introducePerformerAnimations.js"></script>
 </head>
 <body>
     <div class="container">
@@ -73,6 +75,11 @@
             <p id="movie-description" class="description">
                 Đang tải mô tả phim...
             </p>
+            <div class="cast-section">
+                <hr>
+                <h2>Diễn Viên</h2>
+                <div id="cast-slider" class="cast-slider-container"></div>
+            </div>
         </div>
     </main>
 </body>

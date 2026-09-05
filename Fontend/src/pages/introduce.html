@@ -9,7 +9,9 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <script src="../services/movieService.js" defer></script>
-        <script src="../logic/introduce.js" defer></script>
+        <script src="../logic/introduce/introduce.js" defer></script>
+        <script src="../logic/introduce/introducePerformer.js" defer></script>
+        <script src="../logic/introduce/introducePerformerAnimations.js" defer></script>
         <script src="../utils/formatters.js" defer></script>
         <title>Giới Thiệu</title>
     </head>
@@ -88,6 +90,15 @@
                 <div class="summary-box">
                 <h2>Tóm tắt Phim</h2>
                 <p id="movie-description" class="description">Đang tải mô tả phim...</p>
+                </div>
+                <!-- KHỐI DIỄN VIÊN -->
+                <div class="cast-section">
+                    <div class="cast-header">
+                        <h2 class="cast-title">Diễn viên</h2>
+                    </div>  
+                </div>
+                <div class="cast-slider-container" id="cast-slider">
+                <!-- Danh sách diễn viên sẽ được render vào đây từ JS -->
                 </div>
             </div>
         </div>

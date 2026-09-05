@@ -1,13 +1,7 @@
-/**
- * File: js/services/movieService.js
- * Chức năng: Quản lý toàn bộ yêu cầu API liên quan đến Phim
- */
-
+/** * File: js/services/movieService.js
+ * Chức năng: Quản lý toàn bộ yêu cầu API liên quan đến Phim*/
 const API_BASE_URL = "http://localhost:5000/api/movies";
-
-/**
- * Lấy danh sách tất cả phim cho trang Home
- */
+/*** Lấy danh sách tất cả phim cho trang Home*/
 async function getAllMovies() {
     try {
         const response = await fetch(API_BASE_URL);
@@ -18,10 +12,7 @@ async function getAllMovies() {
         return [];
     }
 }
-
-/**
- * Lấy thông tin chi tiết 1 bộ phim theo ID cho trang Watch
- */
+/*** Lấy thông tin chi tiết 1 bộ phim theo ID cho trang Watch */
 async function getMovieById(id) {
     try {
         const response = await fetch(`${API_BASE_URL}/${id}`);
@@ -30,5 +21,18 @@ async function getMovieById(id) {
     } catch (error) {
         console.error(`❌ Error getMovieById (${id}):`, error);
         return null;
+    }
+}
+async function getFilterOptions() {
+    try {
+        const response = await fetch('http://localhost:5000/api/movies/filter-options');
+        const resData = await response.json(); 
+        if (resData.success) {
+            return resData.data; // Trả về { genres: [...], countries: [...], years: [...] }
+        }
+        return { genres: [], countries: [], years: [] };
+    } catch (error) {
+        console.error('❌ Lỗi kết nối API lấy options bộ lọc:', error);
+        return { genres: [], countries: [], years: [] };
     }
 }

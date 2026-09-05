@@ -59,7 +59,7 @@ a, a:hover, a:focus, a:visited {
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    background-color: black; /* Màu nền tối cho thẻ phim */
+    background-color: rgb(20, 20, 20); /* Màu nền tối cho thẻ phim */
     text-decoration: none;
 }
 

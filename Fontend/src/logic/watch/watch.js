@@ -1,7 +1,8 @@
 /**
  * File: js/logic/watch.js
- * Chức năng: Xử lý phát Video và Chọn Tập cho trang xem phim
+ * Chức năng: Xử lý phát Video, Chọn Tập và Render Diễn viên cho trang xem phim
  */
+
 /**
  * Hàm phát video linh hoạt (Xử lý Player Embed, HLS .m3u8 và MP4)
  */
@@ -76,7 +77,7 @@ function renderEpisodeButtons(episodes, playerContainer, episodesContainer) {
         renderVideoPlayer(episodes[0].videoUrl, playerContainer);
         if (episodesContainer.children[0]) {
             episodesContainer.children[0].style.background = "#e50914";
-    }
+        }
     }   
 }
 
@@ -90,41 +91,8 @@ async function initWatchPage() {
     const playerContainer = document.getElementById("player-container");
     const episodesContainer = document.getElementById("episodes-container");
 
-    try {
-        const movie = await getMovieById(movieId);
-
-        if (!movie) {
-            document.getElementById("movie-title").textContent = "Không tìm thấy phim!";
-            return;
-        }
-
-        // Đổ thông tin chi tiết phim
-        document.getElementById("movie-title").textContent = movie.title || "Chưa có tên";
-        document.getElementById("movie-year").textContent = movie.year || "2026";
-        document.getElementById("movie-category").textContent = parseCategories(movie.category); // Dùng hàm từ formatters.js
-        document.getElementById("movie-description").textContent = movie.description || "Chưa có mô tả.";
-
-        // Chuẩn hóa danh sách tập phim
-        const episodes = movie.episodes && movie.episodes.length > 0 
-            ? movie.episodes 
-            : [{ name: "Tập Full", videoUrl: movie.videoUrl }];
-
-        // Render nút chọn tập và phát phim
-        renderEpisodeButtons(episodes, playerContainer, episodesContainer);
-
-    } catch (error) {
-        console.error("❌ Lỗi trang xem phim:", error);
-    }
-}
-async function initWatchPage() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get("id");
-
-    const playerContainer = document.getElementById("player-container");
-    const episodesContainer = document.getElementById("episodes-container");
-
-    // 🌟 Kích hoạt tính năng kéo cuộn DỌC riêng từ file verticalDragScroll.js
-    if (episodesContainer) {
+    // Kích hoạt tính năng kéo cuộn DỌC riêng cho danh sách tập phim (nếu có)
+    if (episodesContainer && typeof enableVerticalDragScroll === "function") {
         enableVerticalDragScroll(episodesContainer);
     }
 
@@ -136,21 +104,30 @@ async function initWatchPage() {
             return;
         }
 
+        // Đổ thông tin chi tiết phim
         document.getElementById("movie-title").textContent = movie.title || "Chưa có tên";
         document.getElementById("movie-year").textContent = movie.year || "2026";
         document.getElementById("movie-category").textContent = parseCategories(movie.category);
         document.getElementById("movie-description").textContent = movie.description || "Chưa có mô tả.";
 
+        // Chuẩn hóa danh sách tập phim
         const episodes = movie.episodes && movie.episodes.length > 0 
             ? movie.episodes 
             : [{ name: "Tập Full", videoUrl: movie.videoUrl }];
 
+        // Render nút chọn tập và phát phim
         renderEpisodeButtons(episodes, playerContainer, episodesContainer);
+
+        // 🌟 HIỂN THỊ DANH SÁCH DIỄN VIÊN 🌟
+        if (typeof renderPerformers === "function") {
+            renderPerformers(movie.performer);
+        }
 
     } catch (error) {
         console.error("❌ Lỗi trang xem phim:", error);
     }
 }
+
 window.addEventListener("popstate", () => {
     window.location.reload();
 });

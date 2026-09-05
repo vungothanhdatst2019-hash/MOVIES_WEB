@@ -19,6 +19,68 @@ exports.getAllMovies = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+// 🌟 2.1 [GET] /api/movies/filter-options - Lấy danh sách danh mục lọc động từ DB
+// [GET] /api/movies/filter-options - Lấy danh sách danh mục lọc động từ DB
+exports.getFilterOptions = async (req, res) => {
+  try {
+    const rawCategories = await Movie.distinct('category');
+    const rawNations = await Movie.distinct('nation');
+    const rawYears = await Movie.distinct('year');
+
+    // 1. Xử lý Thể loại (category là mảng -> làm phẳng mảng và loại bỏ phần tử trùng)
+    const flatCategories = Array.isArray(rawCategories)
+      ? [...new Set(rawCategories.flat().filter(item => item && typeof item === 'string'))]
+      : [];
+
+    // 2. Xử lý Quốc gia (Xóa khoảng trắng thừa và lọc trùng)
+    const cleanNations = Array.isArray(rawNations)
+      ? [...new Set(rawNations.map(n => typeof n === 'string' ? n.trim() : n).filter(Boolean))]
+      : [];
+
+    // 3. Xử lý Năm (Lọc trùng và sắp xếp giảm dần)
+    const sortedYears = Array.isArray(rawYears)
+      ? [...new Set(rawYears.filter(y => y && !isNaN(y)))].sort((a, b) => b - a)
+      : [];
+
+    res.status(200).json({
+      success: true,
+      data: {
+        genres: flatCategories,
+        countries: cleanNations,
+        years: sortedYears
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// 🌟 2.2 [GET] /api/movies/filter - Lọc phim theo điều kiện
+exports.filterMovies = async (req, res) => {
+  try {
+    const { country, genre, year, type, order } = req.query;
+    let query = {};
+
+    // Ánh xạ tham số nhận từ query string với tên trường thực tế trong MongoDB
+    if (country) query.nation = country;
+    if (genre) query.category = genre;
+    if (year) query.year = Number(year);
+    if (type) query.type = type;
+
+    // Thứ tự sắp xếp (mặc định giảm dần theo ngày tạo/năm)
+    const sortOrder = order === 'asc' ? 1 : -1;
+
+    const movies = await Movie.find(query).sort({ year: sortOrder, _id: sortOrder });
+
+    res.status(200).json({
+      success: true,
+      count: movies.length,
+      data: movies
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
 
 // 3. [GET] /api/movies/:id - Lấy chi tiết 1 phim
 exports.getMovieById = async (req, res) => {

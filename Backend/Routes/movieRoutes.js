@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Movie = require('../models/Movie');
 const axios = require('axios');
+const movieController = require('../controllers/movieController');
 console.log("🚀 Kiểm tra Axios đã nạp chưa:", typeof axios);
 router.get('/proxy/stream', async (req, res) => {
     try {
@@ -38,14 +39,14 @@ router.get('/proxy/stream', async (req, res) => {
         res.status(500).send("Không thể tải luồng video qua Proxy!");
     }
 });
-router.get('/', async (req, res) => {
-    try {
-        const movies = await Movie.find(); // Lấy tất cả phim trong DB
-        res.status(200).json(movies);
-    } catch (error) {
-        res.status(500).json({ message: "Lỗi Server", error: error.message });
-    }
-});
+// 🌟 Route lấy danh sách tùy chọn lọc (Genre, Nation, Year) từ DB
+router.get('/filter-options', movieController.getFilterOptions);
+
+// 🌟 Route thực hiện truy vấn lọc phim
+router.get('/filter', movieController.filterMovies);
+
+// Lấy danh sách tất cả phim
+router.get('/', movieController.getAllMovies);
 // API: Lấy thông tin phim theo movieId hoặc _id (GET /api/movies/:id)
 router.get('/:id', async (req, res) => {
     try {
