@@ -3,7 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Movie = require('../models/Movie');
 const axios = require('axios');
-const movieController = require('../controllers/movieController');
+const movieController = require('../Controllers/movieController');
+
 console.log("🚀 Kiểm tra Axios đã nạp chưa:", typeof axios);
 router.get('/proxy/stream', async (req, res) => {
     try {

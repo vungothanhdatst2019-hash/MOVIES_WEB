@@ -27,17 +27,17 @@ exports.getFilterOptions = async (req, res) => {
     const rawNations = await Movie.distinct('nation');
     const rawYears = await Movie.distinct('year');
 
-    // 1. Xử lý Thể loại (category là mảng -> làm phẳng mảng và loại bỏ phần tử trùng)
+    // 1. Làm phẳng mảng category và lọc trùng
     const flatCategories = Array.isArray(rawCategories)
-      ? [...new Set(rawCategories.flat().filter(item => item && typeof item === 'string'))]
+      ? [...new Set(rawCategories.flat().filter(Boolean))]
       : [];
 
-    // 2. Xử lý Quốc gia (Xóa khoảng trắng thừa và lọc trùng)
+    // 2. Làm phẳng quốc gia và xóa khoảng trắng thừa
     const cleanNations = Array.isArray(rawNations)
-      ? [...new Set(rawNations.map(n => typeof n === 'string' ? n.trim() : n).filter(Boolean))]
+      ? [...new Set(rawNations.flat().map(n => typeof n === 'string' ? n.trim() : n).filter(Boolean))]
       : [];
 
-    // 3. Xử lý Năm (Lọc trùng và sắp xếp giảm dần)
+    // 3. Lọc năm giảm dần
     const sortedYears = Array.isArray(rawYears)
       ? [...new Set(rawYears.filter(y => y && !isNaN(y)))].sort((a, b) => b - a)
       : [];
@@ -54,7 +54,6 @@ exports.getFilterOptions = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-
 // 🌟 2.2 [GET] /api/movies/filter - Lọc phim theo điều kiện
 exports.filterMovies = async (req, res) => {
   try {
