@@ -128,6 +128,7 @@
     font-size: 14px;
     cursor: pointer;
     border-radius: 4px;
+    font-family: times new roman;
 }
 .btn-primary:hover {
     background-color: #e64a19;
@@ -140,6 +141,7 @@
     font-size: 14px;
     cursor: pointer;
     border-radius: 4px;
+    font-family: times new roman;
 }
 .btn-secondary:hover {
     background-color: #4b5563;

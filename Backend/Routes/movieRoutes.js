@@ -52,19 +52,15 @@ router.get('/', movieController.getAllMovies);
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-
         // 1. Ưu tiên tìm theo movieId tự đặt trước (vd: "phim-01")
         let movie = await Movie.findOne({ movieId: id });
-
         // 2. Nếu không thấy và id gửi lên là ObjectId 24 ký tự hợp lệ, thử tìm theo _id của MongoDB
         if (!movie && mongoose.Types.ObjectId.isValid(id)) {
             movie = await Movie.findById(id);
         }
-
         if (!movie) {
             return res.status(404).json({ message: "Không tìm thấy bộ phim này!" });
         }
-
         res.status(200).json(movie);
     } catch (error) {
         res.status(500).json({ message: "Lỗi Server", error: error.message });

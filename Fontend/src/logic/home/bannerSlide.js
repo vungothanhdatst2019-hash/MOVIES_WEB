@@ -4,7 +4,7 @@
  */
 (function () {
     let slideInterval = null;
-    const INTERVAL_TIME = 3500; 
+    const INTERVAL_TIME = 3000; 
     window.startBannerAutoSlide = function (featuredMovies) {
         if (!featuredMovies || featuredMovies.length <= 1) return;
         let currentIndex = 0;

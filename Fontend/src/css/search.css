@@ -121,3 +121,46 @@ a, a:hover, a:focus, a:visited {
 .filter-button:hover {
     background-color: #1e293b;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 0;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #1e293b;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(.disabled):not(.active) {
+    background-color: #334155;
+}
+
+.page-btn.active {
+    background-color: #ff6b00; /* Màu cam nổi bật */
+    color: #ffffff;
+}
+
+.page-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-dots {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 4px;
+}

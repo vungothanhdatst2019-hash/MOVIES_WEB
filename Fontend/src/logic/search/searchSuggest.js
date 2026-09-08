@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!movieId) return;
         const currentPath = window.location.pathname;
         // Nếu ĐANG Ô TRANG XEM PHIM -> Chuyển hướng lại trang watch với ID mới
-        if (currentPath.endsWith("watch.html")) {
+        if (currentPath.endsWith("introduce.html")) {
             window.location.assign(`watch.html?id=${movieId}`);
             return;
         }
         // Nếu ĐANG Ở TRANG KHÁC (Trang chủ...)
         if (currentPath.includes("/pages/")) {
-            window.location.assign(`watch.html?id=${movieId}`);
+            window.location.assign(`introduce.html?id=${movieId}`);
         } else {
-            window.location.assign(`pages/watch.html?id=${movieId}`);
+            window.location.assign(`pages/introduce.html?id=${movieId}`);
         }
     }
     function redirectToSearchPage(keyword) {

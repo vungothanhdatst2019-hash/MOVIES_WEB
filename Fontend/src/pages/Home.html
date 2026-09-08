@@ -11,6 +11,8 @@
     <script src="../services/movieService.js" defer></script>
     <script src="../logic/home/banner.js" defer></script>
     <script src="../logic/home/bannerSlide.js" defer></script>
+    <script src="../logic/home/category.js" defer></script>
+    <script src="../logic/home/series.js" defer></script>
     <script src="../logic/home/home_list.js" defer></script>
     <script src="../components/movieCard.js" defer></script>
     <script src="../utils/formatters.js" defer></script>    
@@ -30,14 +32,11 @@
                 <ul class="menu">
                     <li class="drop-down">
                         <a href="#">Thể Loại</a>
-                        <ul class="drop-down-menu">
-                        <li><a href="#">Hài Hước</a></li>
-                        <li><a href="#">Hài Hước</a></li>
-                        <li><a href="#">Hài Hước</a></li>
-                        <li><a href="#">Hài Hước</a></li>
+                        <ul class="drop-down-menu" id="nav-genre-list">
+                            <li><a href="#">Đang tải...</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Phim Lẻ</a></li>
+                    <li><a href="#">Phim Bộ</a></li>
                     <li><a href="#">Phim Chiếu Rạp</a></li>
                     <li><a href="#">Phim Hoạt Hình</a></li>
                 </ul>

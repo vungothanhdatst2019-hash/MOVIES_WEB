@@ -146,48 +146,63 @@
 }
 
 .search-item-year {
-    font-size: 12px;
+    font-size: 14px;
     color: #9ca3af;
     margin-top: 2px;
 }
-.drop-down{
+.drop-down {
     position: relative;
     cursor: pointer;
 }
-.drop-down-menu{ 
-    width: 100px; 
-    position: absolute;   
-    top: 100%;            
-    left: 0;
-    background-color: none;
-    padding: 10px 0;
-    min-width: 100px;
-    list-style: none;
-    z-index: 1000;
-    border-radius: 4px;
-    color: transparent;
 
+/* 🌟 Bảng menu thu gọn chiều dọc chuẩn xác */
+.drop-down-menu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto !important;
+    background-color: #1f2937;
+    padding: 8px !important; /* Giảm padding viền bảng */
+    list-style: none !important;
+    z-index: 9999;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+    /* Grid bám sát chiều cao nội dung */
+    grid-template-rows: repeat(9, max-content) !important; /* Ép hàng ôm sát chữ */
+    grid-auto-flow: column;
+    grid-auto-columns: auto; /* Độ rộng mỗi cột */
+    gap: 2px 8px !important; /* Khoảng cách hàng dọc cực nhỏ (2px) */
+    align-content: start !important; /* Không cho dãn đều chiều dọc */
 }
-.drop-down-menu li a{
+
+/* Hiển thị dạng Grid khi di chuột vào */
+.drop-down:hover .drop-down-menu {
+    display: grid !important;
+}
+
+.drop-down-menu li {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+}
+
+.drop-down-menu li a {
     text-decoration: none;
-    padding: 0px 0px 10px 10px;   
+    padding: 8px 16px !important; /* Thu gọn khoảng cách trên/dưới của chữ */
     font-size: 15px;
-    font-weight: normal;
+    font-weight: 500;
+    color: white !important;
+    display: block;
     text-align: left;
-    display: block;
-    flex-wrap: wrap;
     white-space: nowrap;
-}
-.drop-down:hover .drop-down-menu{
-    display: block;
-    flex-wrap: wrap;
-    background-color: white;
     border-radius: 4px;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
-    color: black;
+    line-height: 1.2 !important; /* Giảm chiều cao dòng */
+    transition: background 0.2s, color 0.2s;
 }
-.drop-down-menu li a:hover{
-    display: block;
-    background-color: #f0f0f0;
-    color: black;
+
+.drop-down-menu li a:hover {
+    background-color: #545557;
 }
