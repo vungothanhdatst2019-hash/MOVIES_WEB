@@ -23,7 +23,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (keyword) {
             keywordDisplay.textContent = `"${keyword}"`;
         } else if (country || year || genre || type) {
-            keywordDisplay.textContent = "Kết quả bộ lọc";
+            let typeText = "";
+        if (type === "series") typeText = "Phim Bộ";
+        else if (type === "single") typeText = "Phim Lẻ";
+        else if (type === "anime") typeText = "Phim Hoạt Hình";
+        else typeText = type;
+        // Ghép các điều kiện lọc lại với nhau
+        const filterParts = [];
+        if (country) filterParts.push(`${country}`);
+        if (year) filterParts.push(`${year}`);
+        if (genre) filterParts.push(`${genre}`);
+        if (type) filterParts.push(`${typeText}`);
+
+        keywordDisplay.textContent = filterParts.join(" | ");
         } else {
             keywordDisplay.textContent = "Tất cả phim";
         }
