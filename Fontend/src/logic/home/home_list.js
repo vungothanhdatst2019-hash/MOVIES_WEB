@@ -21,6 +21,20 @@ function renderMovieList(movies, container) {
  */
 async function initHomePage() {
     const movieListContainer = document.getElementById("movie-list");
+    try {
+        const movies = await getAllMovies();
+        if (movies && movies.length > 0) {
+            renderMovieList(movies.slice(0, 12), document.getElementById("movie-list"));
+        }
+    } catch (error) {
+        console.error("Lỗi:", error);
+    } finally {
+        setTimeout(() => {
+            if (typeof Loader !== "undefined") {
+                Loader.hide();
+            }
+        }, 500);
+    }
     loadNavGenres(); // Nạp danh sách thể loại vào menu
     try {
         // 1. Gọi API lấy danh sách tất cả phim
@@ -39,13 +53,17 @@ async function initHomePage() {
                 startBannerAutoSlide(bannerMovies);
             }
         }
-        // 4. Render danh sách Phim Mới Đề Cử bên dưới (12 phim)
+        // 4. Render danh sách Phim Mới Đề Cử bên dưới (11 phim)
         if (movieListContainer) {
             if (typeof enableDragScroll === "function") {
                 enableDragScroll(movieListContainer);
             }
             renderMovieList(movies.slice(0, 11), movieListContainer);
-        }   
+        }
+        // 5. Khởi chạy phần Phim Bộ (Series) nếu có
+        if (typeof initSeriesSection === "function") {
+            initSeriesSection(movies);
+        } 
     } catch (error) {
         console.error("❌ Lỗi nạp dữ liệu trang chủ:", error);
     }
@@ -58,5 +76,4 @@ function safeInitHome() {
         document.addEventListener("DOMContentLoaded", initHomePage);
     }
 }
-// Chạy hàm kiểm tra
 safeInitHome();

@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const searchGrid = document.getElementById("search-movie-grid");
     const keywordDisplay = document.getElementById("keyword-display");
     const paginationContainer = document.getElementById("pagination-container");
-
     if (!searchGrid) return;
-
     // 1. Trích xuất toàn bộ tham số từ URL Params
     const urlParams = new URLSearchParams(window.location.search);
     const keyword = urlParams.get("q") ? urlParams.get("q").trim() : "";
@@ -34,7 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (year) filterParts.push(`${year}`);
         if (genre) filterParts.push(`${genre}`);
         if (type) filterParts.push(`${typeText}`);
-
         keywordDisplay.textContent = filterParts.join(" | ");
         } else {
             keywordDisplay.textContent = "Tất cả phim";

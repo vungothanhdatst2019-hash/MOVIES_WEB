@@ -6,20 +6,26 @@
     <title>Trang Chủ</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" >
     <link rel="stylesheet" type="text/css" href="../css/container.css" >
+    <link rel="stylesheet" type="text/css" href="../css/load.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../utils/loader.js" defer></script>
     <script src="../services/movieService.js" defer></script>
     <script src="../logic/home/banner.js" defer></script>
     <script src="../logic/home/bannerSlide.js" defer></script>
     <script src="../logic/home/category.js" defer></script>
     <script src="../logic/home/home_list.js" defer></script>
     <script src="../components/movieCard.js" defer></script>
+    <script src="../logic/home/movieSeries.js" defer></script>
     <script src="../utils/formatters.js" defer></script>    
     <script src="../utils/dragScroll.js" defer></script>
     <script src="../logic/search/searchSuggest.js" defer></script>
 </head>
 
 <body>
+        <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>          
+        </div>  
         <div class="container">
             <div class="left-nav">
                 <div class="menu-toggle" id="mobile-menu">
@@ -91,6 +97,24 @@
                 <h2>PHIM MỚI ĐỀ CỬ</h2>
                 <!-- Nơi JavaScript sẽ tự động đổ các div thẻ phim vào đây -->
                 <div id="movie-list" class="movie-grid"></div>
+            </section>
+            <section class="movie-section series-section">
+                <div class="section-header">
+                    <div class="header-left">
+                        <h2 class="section-title">PHIM BỘ MỚI CẬP NHẬT</h2>
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-filter="all">Mới cập nhật</button>
+                            <button class="tab-btn" data-filter="Hàn Quốc">Hàn Quốc</button>
+                            <button class="tab-btn" data-filter="Trung Quốc">Trung Quốc</button>
+                            <button class="tab-btn" data-filter="Mỹ">Mỹ</button>
+                        </div>
+                    </div>
+                    <a href="search.html?type=series" class="view-all-btn">
+                        Xem tất cả <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                <!-- Container Grid render phim -->
+                <div id="series-list" class="featured-series-grid"></div>
             </section>
         </main>
 </body>

@@ -234,7 +234,6 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .movie-category {
     font-size: 12px;
     color: #aaa;
@@ -244,4 +243,189 @@ body{
     padding: 20px 0px 0px 70px;
     background-color:  #1a2332;
     color: white;
+}
+/* ================= PHIM BỘ MỚI CẬP NHẬT ================= */
+.series-section {
+    margin: 40px 0;
+}
+
+/* --- Phần Tiêu đề & Nút lọc --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    background-color: #1e293b;
+    color: #94a3b8;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: times new roman, sans-serif;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background-color: #334155;
+}
+
+.tab-btn.active {
+    background-color:rgb(183, 67, 41);
+    color: #ffffff;
+}
+
+.view-all-btn {
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: times new roman, sans-serif;
+}
+.view-all-btn:hover {
+    color: #ffffff;
+    background-color: #334155;
+}
+
+/* --- Lưới hiển thị phim bộ (Grid Layout) --- */
+.featured-series-grid {
+    display: grid;
+    grid-template-columns: 2.0fr repeat(3, 1fr);
+    grid-auto-rows: 153px;
+    gap: 6px;
+}
+
+/* Thẻ phim đầu tiên bên trái chiếm 1 cột và kéo dài hết 2 hàng Grid */
+.featured-series-grid .movie-card:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+/* --- Giao diện Thẻ Phim Bộ Riêng Biệt --- */
+.featured-series-grid .movie-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background-size: cover;          /* Giúp hình ảnh phủ kín khung, cắt bớt phần dư nếu cần */
+    background-position: center;     /* Canh giữa hình ảnh */
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    max-width: none !important;
+    flex: none !important;
+}
+
+.featured-series-grid .movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.featured-series-grid .movie-card:hover img {
+    transform: scale(0.5);
+}
+
+/* --- Nhãn (Badges) góc trên --- */
+.featured-series-grid .card-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.badge-episode {
+    background-color: rgb(14, 13, 13);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.badge-sub {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* --- Thông tin chữ góc dưới --- */
+.featured-series-grid .card-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px 12px 10px;
+    background: linear-gradient(to top, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.6) 70%, transparent 100%);
+    z-index: 2;
+    text-align: left; /* Canh trái */
+}
+
+.featured-series-grid .card-title-main {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chữ của thẻ đầu tiên to hơn */
+.featured-series-grid .movie-card:first-child .card-title-main {
+    font-size: 18px;
+    margin-bottom: 2px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.featured-series-grid .card-title-sub {
+    color: #cbd5e1;
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: times new roman, sans-serif;
+}
+
+.featured-series-grid .movie-card:first-child .card-title-sub {
+    font-size: 10px;
 }

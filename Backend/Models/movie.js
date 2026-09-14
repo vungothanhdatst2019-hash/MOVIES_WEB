@@ -15,4 +15,4 @@ const movieSchema = new mongoose.Schema({
     episodes: [{ type: mongoose.Schema.Types.Mixed }], 
 }, { timestamps: true });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.models.Movie || mongoose.model('Movie', movieSchema);
