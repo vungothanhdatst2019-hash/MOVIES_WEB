@@ -21,6 +21,11 @@ displayMovies.forEach(movie => {
     };
     // Lấy số tập hiện tại (chỉ lấy số, tránh bị lặp chữ "Tập")
     const currentEpNum = movie.currentEpisode || movie.currentEp || 1;
+    const quality = movie.quality || "HD";
+    const year = movie.year || "";
+    const category = Array.isArray(movie.genres)
+        ? movie.genres.join(", ")
+        : (movie.category || movie.genre || "");
     const totalEp =
         movie.totalEpisodes ||
         movie.totalEp ||
@@ -34,19 +39,19 @@ displayMovies.forEach(movie => {
         console.warn("Không tìm thấy tổng số tập cho phim:", movie.title, movie);
     }
     const epBadgeText = totalEp ? `Tập ${currentEpNum}/${totalEp}` : `Tập ${currentEpNum}`;
-    const subBadgeText = movie.lang || movie.subLang || "";
     const bgImg = movie.backgroundUrl || 'https://via.placeholder.com/300x400?text=No+Image';
     card.style.backgroundImage = `url('${bgImg}')`;
 
-    // Cấu trúc đúng với CSS: badge ở góc trên, tiêu đề nằm trong overlay ở góc dưới trái
+    // Cấu trúc đúng với CSS: badge ở góc trên (HD, số tập, năm), tiêu đề + thể loại nằm trong overlay ở góc dưới trái
     card.innerHTML = `
         <div class="card-badges">
+            <span class="badge-episode">${quality}</span>
             <span class="badge-episode">${epBadgeText}</span>
-            <span class="badge-sub">${subBadgeText}</span>
         </div>
+        ${year ? `<span class="card-year">${year}</span>` : ''}
         <div class="card-info-overlay">
             <p class="card-title-main">${movie.title}</p>
-            ${movie.originalTitle ? `<p class="card-title-sub">${movie.originalTitle}</p>` : ''}
+            ${category ? `<p class="card-title-sub">${category}</p>` : ''}
         </div>
     `;
     fragment.appendChild(card);

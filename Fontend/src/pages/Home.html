@@ -17,6 +17,8 @@
     <script src="../logic/home/home_list.js" defer></script>
     <script src="../components/movieCard.js" defer></script>
     <script src="../logic/home/movieSeries.js" defer></script>
+    <script src="../logic/home/movieSingleCategory.js" defer></script>
+    <script src="../logic/home/movieAnimeCategory.js" defer></script>
     <script src="../utils/formatters.js" defer></script>    
     <script src="../utils/dragScroll.js" defer></script>
     <script src="../logic/search/searchSuggest.js" defer></script>
@@ -55,6 +57,8 @@
             </div>
         </div>
         <div class="hero-banner" id="hero-banner">
+            <div class="hero-banner-bg-blur" id="hero-banner-blur"></div>
+            <div class="hero-banner-bg-main" id="hero-banner-main"></div>
             <div class="banner-overlay"></div>
         
             <div class="banner-content">
@@ -116,6 +120,41 @@
                 <!-- Container Grid render phim -->
                 <div id="series-list" class="featured-series-grid"></div>
             </section>
+            <section class="movie-section single-section">
+                <div class="section-header-single">
+                    <div class="header-left">
+                        <h2 class="section-title">PHIM CHIẾU RẠP MỚI CẬP NHẬT</h2>
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-filter="all">Mới cập nhật</button>
+                            <button class="tab-btn" data-filter="Hành động">Hành động</button>
+                            <button class="tab-btn" data-filter="Kinh dị">Kinh dị</button>
+                            <button class="tab-btn" data-filter="Gia Đình">Gia Đình</button>
+                        </div>
+                    </div>
+                    <a href="search.html?type=single" class="view-all-btn">
+                        Xem tất cả <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                <!-- Nơi JavaScript sẽ tự động đổ các div thẻ phim vào đây -->
+                <div id="single-movie-list" class="featured-series-grid"></div>
+            </section>
+            <section class="movie-section anime-section">
+                <div class="section-header-anime">
+                    <div class="header-left">
+                        <h2 class="section-title">PHIM HOẠT HÌNH MỚI CẬP NHẬT</h2>
+                        <div class="filter-tabs">
+                            <button class="tab-btn active" data-filter="all">Mới cập nhật</button>
+                            <button class="tab-btn" data-filter="Hành động">Hành động</button>
+                            <button class="tab-btn" data-filter="Phiêu lưu">Phiêu lưu</button>
+                            <button class="tab-btn" data-filter="Tình Cảm">Tình Cảm</button>
+                        </div>
+                    </div>
+                    <a href="search.html?type=anime" class="view-all-btn">
+                        Xem tất cả <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+                <!-- Nơi JavaScript sẽ tự động đổ các div thẻ phim vào đây -->
+                <div id="anime-movie-list" class="featured-series-grid"></div>
         </main>
 </body>
 </html>

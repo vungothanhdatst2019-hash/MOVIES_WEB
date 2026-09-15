@@ -1,4 +1,4 @@
-const Movie = require('../models/Movie');
+const Movie = require('../Models/movie');
 // 1. Lấy tất cả danh sách phim (Phục vụ trang chủ / Home)
 exports.getAllMovies = async (req, res) => {
   try {

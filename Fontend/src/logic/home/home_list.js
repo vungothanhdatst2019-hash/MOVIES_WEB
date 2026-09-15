@@ -63,11 +63,19 @@ async function initHomePage() {
         // 5. Khởi chạy phần Phim Bộ (Series) nếu có
         if (typeof initSeriesSection === "function") {
             initSeriesSection(movies);
-        } 
-    } catch (error) {
+        }
+        // 6. Khởi chạy phần Phim Chiếu Rạp (Single) nếu có
+        if (typeof initSingleSection === "function") {
+            initSingleSection(movies);
+        }
+        // 7. Khởi chạy phần Phim Hoạt Hình (Anime) nếu có
+        if (typeof initAnimeSection === "function") {
+            initAnimeSection(movies);
+        }
+        } catch (error) {
         console.error("❌ Lỗi nạp dữ liệu trang chủ:", error);
+        }
     }
-}
 // Hàm khởi chạy an toàn cho Home List
 function safeInitHome() {
     if (document.readyState === "complete" || document.readyState === "interactive") {
