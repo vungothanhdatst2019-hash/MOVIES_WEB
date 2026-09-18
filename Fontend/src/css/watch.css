@@ -7,13 +7,11 @@ hr {
     height: 1px;
     background-color: #0b1120;
 }
-
 .watch-container {
     max-width: 1100px;
     margin: 20px auto;
     padding: 0 15px;
 }
-
 /* Tỉ lệ chuẩn 16:9 cho Video Player */
 .video-player-wrapper {
     width: 100%;
@@ -22,33 +20,28 @@ hr {
     border-radius: 8px;
     overflow: hidden;
 }
-
 .video-player-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-
 .movie-details {
     margin-top: 20px;
     background-color: #1a2332;
     padding: 20px;
     border-radius: 8px;
 }
-
 .movie-details h2{
     font-size: 24px;
     color: #fff;
     margin:20px 15px 0px 0px;
 }
-
 .movie-meta {
     font-size: 16px;
     color: #9ca3af;
     margin-bottom: 15px;
     font-family: Arial, sans-serif;
 }
-
 .description {
     line-height: 1.6;
     color: #d1d5db;
@@ -100,13 +93,11 @@ hr {
     box-sizing: border-box;
     overflow: hidden;
 }
-
 .cast-section h2 {
     font-size: 24px;
     color: #fff;
     margin: 20px 0 15px 0;
 }
-
 .cast-slider-container {
     display: flex;
     gap: 20px;
@@ -122,17 +113,14 @@ hr {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
 .cast-slider-container::-webkit-scrollbar {
     display: none !important;
     width: 0 !important;
     height: 0 !important;
 }
-
 .cast-slider-container:active {
     cursor: grabbing;
 }
-
 .cast-item {
     display: flex;
     flex-direction: column;
@@ -142,7 +130,6 @@ hr {
     text-align: center;
     flex-shrink: 0;
 }
-
 .cast-avatar-wrapper {
     width: 100px;
     height: 100px;
@@ -153,7 +140,6 @@ hr {
     border: 2px solid transparent;
     pointer-events: none;
 }
-
 .cast-avatar-wrapper img {
     width: 100%;
     height: 100%;
@@ -162,7 +148,6 @@ hr {
     user-drag: none !important;
     pointer-events: none;
 }
-
 .cast-name {
     font-size: 13px;
     font-weight: 600;

@@ -72,6 +72,10 @@ async function initHomePage() {
         if (typeof initAnimeSection === "function") {
             initAnimeSection(movies);
         }
+        // 8. Khởi chạy phần "Có thể bạn cũng thích"
+        if (typeof initRecommendationSection === "function") {
+            initRecommendationSection(movies);
+        }
         } catch (error) {
         console.error("❌ Lỗi nạp dữ liệu trang chủ:", error);
         }
