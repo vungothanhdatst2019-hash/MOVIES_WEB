@@ -2,7 +2,7 @@
   "name": "webmovies",
   "version": "1.0.0",
   "description": "",
-  "main": "Backend/server.js",
+  "main": "index.js",
   "scripts": {
     "build":"npm install",
     "start": "node Backend/server.js"

@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (isFiltering && !keyword) {
             // Gọi API lọc trực tiếp từ Backend có phân trang
             const queryParams = new URLSearchParams({ country, year, genre, type, order, page: currentPage, limit }).toString();
-            const response = await fetch(`http://localhost:5000/api/movies/filter?${queryParams}`);
+            const response = await fetch(`/api/movies/filter?${queryParams}`);
             const resData = await response.json();
             if (resData.success) {
                 movies = resData.data;
