@@ -4,11 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tìm Kiếm</title>
+        <link rel="stylesheet" type="text/css" href="../css/load.css" >   
         <link rel="stylesheet" type="text/css" href="../css/filter.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/filter-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/filter-mobile.css">
         <link rel="stylesheet" type="text/css" href="../css/container.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/container-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/container-mobile.css">
         <link rel="stylesheet" type="text/css" href="../css/search.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/search-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/search-mobile.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../utils/loader.js" defer></script>
         <script src="../services/movieService.js" defer></script>
         <script src="../utils/formatters.js" defer></script>
         <script src="../components/movieCard.js" defer></script>
@@ -18,10 +26,12 @@
         <script src="../logic/filter/filterInformation.js" defer></script>
         <script src="../logic/filter/filterManager.js" defer></script>
         <script src="../logic/filter/filter.js" defer></script>
-
-  
+        <script src="../logic/home/mobileNav.js" defer></script>
     </head>
     <body>
+        <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>
+        </div>
         <div class="container">
             <div class="left-nav">
                 <div class="menu-toggle" id="mobile-menu">

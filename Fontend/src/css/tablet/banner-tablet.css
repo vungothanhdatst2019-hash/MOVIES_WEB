@@ -1,0 +1,58 @@
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+ 
+    .hero-banner {
+        height: 420px;
+    }
+ 
+    .banner-content {
+        max-width: 420px;
+        padding-left: 24px;
+    }
+ 
+    .banner-title {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+ 
+    .banner-description {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+        -webkit-line-clamp: 2; /* Rút gọn mô tả còn 2 dòng để đỡ chiếm chỗ */
+    }
+ 
+    .banner-badges,
+    .banner-tags {
+        margin-bottom: 10px;
+    }
+ 
+    .badge,
+    .tag-item {
+        font-size: 11px;
+        padding: 2px 6px;
+    }
+ 
+    .btn-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+ 
+    .btn-play {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+ 
+    /* Thumbnail góc dưới phải: thu nhỏ và bớt khoảng cách */
+    .banner-thumbnails {
+        bottom: 14px;
+        right: 14px;
+        gap: 8px;
+    }
+ 
+    .thumb-item {
+        width: 56px;
+        height: 80px;
+    }
+}

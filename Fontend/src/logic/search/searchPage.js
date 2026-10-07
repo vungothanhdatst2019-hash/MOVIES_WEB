@@ -87,6 +87,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error("Lỗi:", error);
         searchGrid.innerHTML = `<div style="color: white; text-align: center;">Đã xảy ra lỗi khi tải dữ liệu!</div>`;
+    } finally {
+        setTimeout(() => {
+            if (typeof Loader !== "undefined") {
+                Loader.hide();
+            }
+        }, 400);
     }
     // Hàm Tạo Thanh Phân Trang
     function renderPagination(page, total) {

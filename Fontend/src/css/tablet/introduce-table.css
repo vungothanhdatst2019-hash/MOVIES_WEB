@@ -1,0 +1,88 @@
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+ 
+    .intro-container {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+    /* --- Banner nền mờ --- */
+    .banner-wrapper {
+        height: 320px;
+        margin-left: -16px; /* Bù lại padding của intro-container để banner vẫn full-bleed */
+        margin-right: -16px;
+        width: calc(100% + 32px);
+    }
+    .play-banner-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    /* --- Poster & Info: thu nhỏ khoảng chồng lên banner --- */
+    .intro-content {
+        gap: 20px;
+        padding: 0;
+        margin-top: -110px;
+    }
+    .poster-box img {
+        width: 150px;
+        height: 220px;
+    }
+    .info-box {
+        margin-top: 70px;
+    }
+    .info-box h1 {
+        font-size: 24px;
+    }
+    .original-title {
+        font-size: 14px;
+        margin: 4px 0 12px 0;
+    }
+    .breadcrumb {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
+    /* --- Nút hành động --- */
+    .action-buttons {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+    .btn-action {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+    .highlight-box {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+    .summary-box {
+        margin-top: 18px;
+        padding-top: 12px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    /* --- Khối diễn viên --- */
+    .cast-section {
+        margin: 22px 0;
+    }
+    .cast-title {
+        font-size: 20px;
+    }
+    .cast-slider-container {
+        gap: 14px;
+    }
+    .cast-item {
+        min-width: 90px;
+        max-width: 90px;
+    }
+    .cast-avatar-wrapper {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 8px;
+    }
+    .cast-name {
+        font-size: 13px;
+    }
+    .cast-role {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,88 @@
+@media screen and (max-width: 767px) {
+ 
+    .watch-container {
+        margin: 12px auto;
+        padding: 0 12px;
+    }
+ 
+    /* Khung video vẫn giữ tỉ lệ 16:9, chỉ bo góc nhỏ lại cho gọn */
+    .video-player-wrapper {
+        border-radius: 6px;
+    }
+ 
+    .movie-details {
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 6px;
+    }
+ 
+    .movie-details h1 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+ 
+    .movie-details h2 {
+        font-size: 18px;
+        margin: 14px 0 8px 0;
+    }
+ 
+    .movie-meta {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+ 
+    .description {
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+ 
+    /* --- Danh sách tập --- */
+    .episodes-wrapper {
+        margin-top: 14px;
+    }
+ 
+    .episodes-wrapper h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+ 
+    #episodes-container {
+        width: 100%;
+        max-height: 220px;
+        gap: 6px;
+        padding: 8px;
+    }
+ 
+    /* --- Khối diễn viên --- */
+    .cast-section {
+        margin-top: 14px;
+    }
+ 
+    .cast-section h2 {
+        font-size: 18px;
+        margin: 14px 0 10px 0;
+    }
+ 
+    .cast-slider-container {
+        gap: 12px;
+    }
+ 
+    .cast-item {
+        min-width: 78px;
+        max-width: 78px;
+    }
+ 
+    .cast-avatar-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 6px;
+    }
+ 
+    .cast-name {
+        font-size: 12px;
+    }
+ 
+    .cast-role {
+        font-size: 10.5px;
+    }
+}

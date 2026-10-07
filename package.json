@@ -1,0 +1,22 @@
+{
+  "name": "webmovies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"npm install",
+    "start": "node Backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vungothanhdatst2019-hash/MOVIES_WEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vungothanhdatst2019-hash/MOVIES_WEB/issues"
+  },
+  "homepage": "https://github.com/vungothanhdatst2019-hash/MOVIES_WEB#readme"
+}

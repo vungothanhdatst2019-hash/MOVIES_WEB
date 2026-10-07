@@ -1,0 +1,35 @@
+/* ================================================
+   FILTER-TABLET.CSS
+   Điều chỉnh Modal Bộ Lọc cho máy tính bảng
+   Áp dụng trong khoảng 768px - 1024px
+   ================================================ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .filter-modal-content {
+        width: 92%;
+        max-width: 640px;
+        margin: 8% auto;
+        padding: 18px;
+    }
+
+    .filter-label {
+        min-width: 70px;
+        font-size: 14px;
+    }
+
+    .filter-option {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .filter-modal-body {
+        max-height: 60vh;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+}

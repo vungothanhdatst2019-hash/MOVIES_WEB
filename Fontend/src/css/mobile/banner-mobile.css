@@ -1,0 +1,162 @@
+@media screen and (max-width: 767px) {
+    .hero-banner {
+        height: auto !important;
+        min-height: initial !important;
+        flex-direction: column !important;
+        padding: 24px 16px 30px !important;
+        background: linear-gradient(180deg, #181d28 0%, #11151e 100%) !important;
+        border-radius: 0 !important;
+        margin-bottom: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+
+    /* Ẩn hình nền desktop khi ở màn hình mobile */
+    .hero-banner-bg-blur,
+    .hero-banner-bg-main,
+    .banner-overlay,
+    .banner-thumbnails {
+        display: none !important;
+    }
+
+    /* Khung Carousel 3D Mobile */
+    .mobile-poster-carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 270px;
+        margin-bottom: 20px;
+        perspective: 1000px;
+    }
+
+    .mobile-poster-item {
+        position: absolute;
+        border-radius: 14px;
+        object-fit: cover;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        transition: all 0.4s ease;
+    }
+
+    .mobile-poster-active {
+        width: 58%;
+        height: 270px;
+        z-index: 3;
+        opacity: 1;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-poster-side {
+        width: 44%;
+        height: 225px;
+        z-index: 1;
+        opacity: 0.35;
+        filter: brightness(0.5) blur(0.5px);
+    }
+
+    .mobile-poster-prev {
+        left: -2%;
+        transform: rotateY(25deg) scale(0.9);
+    }
+
+    .mobile-poster-next {
+        right: -2%;
+        transform: rotateY(-25deg) scale(0.9);
+    }
+
+    /* Nội dung văn bản căn giữa */
+    .banner-content {
+        max-width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    .banner-title {
+        font-size: 20px !important;
+        font-weight: 800 !important;
+        margin-bottom: 4px !important;
+        color: #ffffff !important;
+    }
+
+    .mobile-banner-subtitle {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-bottom: 16px;
+        font-weight: 500;
+    }
+
+    /* Nút bấm Mobile */
+    .banner-actions {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .banner-actions a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        flex: 1 !important;
+        max-width: 150px !important;
+        height: 42px !important;
+        border-radius: 12px !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+        text-decoration: none !important;
+        box-shadow: none !important;
+    }
+
+    .banner-actions .btn-play {
+        background-color: red !important;
+        color: #000000 !important;
+    }
+
+    .banner-actions .btn-info {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    /* Badges */
+    .banner-badges {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .banner-badges .m-badge {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.08);
+        color: #e2e8f0;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .banner-badges .m-badge-quality {
+        background-color: red !important;
+        color: #083344 !important;
+        border: none !important;
+    }
+
+    .banner-description {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        color: #cbd5e1 !important;
+        text-align: center !important;
+        padding: 0 8px !important;
+    }
+    .mobile-poster-item {
+    position: absolute;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease;
+    cursor: pointer !important; /* Đảm bảo chuột/chạm ăn ngay */
+    user-select: none;
+    -webkit-user-drag: none;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/container.css" >
+        <link rel="stylesheet" type="text/css" href="../css/privacypolicy.css" >
+        <link rel="stylesheet" type="text/css" href="../css/endweb.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/endweb-tablet.css" >
+        <link rel="stylesheet" type="text/css" href="../css/mobile/container-mobile.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/container-tablet.css" >
+        <link rel="stylesheet" type="text/css" href="../css/mobile/PrivacyPolivy-mobile.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/PrivacyPolivy-tablet.css" >
+        <link rel="stylesheet" type="text/css" href="../css/mobile/endweb-mobile.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../services/movieService.js" defer></script>
+        <script src="../utils/formatters.js" defer></script>    
+        <script src="../utils/dragScroll.js" defer></script>
+        <script src="../logic/search/searchSuggest.js" defer></script>
+        <script src="../logic/home/movieSeries.js" defer></script>
+        <script src="../logic/home/category.js" defer></script>
+        <script src="../logic/home/mobileNav.js" defer></script>
+    </head>
+<body>
+    <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>          
+        </div>  
+        <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="../pages/Home.html">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu" id="nav-genre-list">
+                            <li><a href="#">Đang tải...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="search.html?type=series">Phim Bộ</a></li>
+                    <li><a href="search.html?type=single">Phim Chiếu Rạp</a></li>
+                    <li><a href="search.html?type=anime">Phim Hoạt Hình</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form id="search-box" class="search-box-wrapper" onsubmit="return false;">
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="search-dropdown" class="search-dropdown"></div>
+                </form>
+            </div>
+        </div>
+        <div class="privacy-policy">
+            <h1>Chính Sách Bảo Mật</h1>
+            <div class="content">
+                <h2>1. Giới thiệu</h2>
+                <p>Chào mừng bạn đến với FreePhim. Chúng tôi cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. Chính sách bảo mật này giải thích cách chúng tôi thu thập, sử dụng, tiết lộ và bảo vệ thông tin của bạn khi bạn sử dụng trang web và dịch vụ của chúng tôi.</p>
+                <h2>2. Thông tin chúng tôi thu thập</h2>
+                <p>Chúng tôi có thể thu thập các loại thông tin sau:</p>
+                    <ul>1. Thông tin cá nhân: Khi bạn đăng ký tài khoản, chúng tôi có thể thu thập tên, địa chỉ email, và mật khẩu của bạn.</ul>
+                    <ul>2. Thông tin sử dụng: Chúng tôi thu thập thông tin về cách bạn sử dụng trang web của chúng tôi, bao gồm các phim bạn xem, thời gian xem, và tương tác với nội dung.</ul>
+                    <ul>3. Thông tin thiết bị: Chúng tôi thu thập thông tin về thiết bị bạn sử dụng để truy cập dịch vụ của chúng tôi, bao gồm loại thiết bị, hệ điều hành, trình duyệt web, và địa chỉ IP.</ul>
+                    <ul>4. Cookie và công nghệ theo dõi: Chúng tôi sử dụng cookie và các công nghệ tương tự để thu thập thông tin về hoạt động duyệt web của bạn và cải thiện trải nghiệm người dùng.</ul>
+                <h2>3. Cách chúng tôi sử dụng thông tin</h2>
+                <p>Chúng tôi sử dụng thông tin thu thập được để:</p>
+                    <ul>1. Cung cấp, duy trì và cải thiện dịch vụ của chúng tôi</ul>
+                    <ul>2. Xử lý và quản lý tài khoản của bạn</ul>
+                    <ul>3. Gửi thông báo liên quan đến tài khoản và dịch vụ của bạn</ul>
+                    <ul>4. Cá nhân hóa trải nghiệm của bạn và đề xuất nội dung phù hợp</ul>
+                    <ul>5. Phân tích và hiểu cách người dùng sử dụng dịch vụ của chúng tôi</ul>
+                    <ul>6. Phát hiện, ngăn chặn và giải quyết các vấn đề kỹ thuật và bảo mật</ul>
+                <h2>4. Chia sẻ thông tin</h2>
+                <p>Chúng tôi có thể chia sẻ thông tin của bạn trong các trường hợp sau:</p>
+                    <ul>1. Với các nhà cung cấp dịch vụ bên thứ ba hỗ trợ chúng tôi vận hành dịch vụ</ul>
+                    <ul>2. Để tuân thủ pháp luật, quy định, quy trình pháp lý hoặc yêu cầu của chính phủ</ul>
+                    <ul>3. Trong trường hợp sáp nhập, bán tài sản công ty, tài trợ hoặc mua lại toàn bộ hoặc một phần doanh nghiệp của chúng tôi</ul>
+                    <ul>4. Với sự đồng ý của bạn hoặc theo chỉ dẫn của bạn</ul>
+                <h2>5. Bảo mật dữ liệu</h2>
+                <p>Chúng tôi thực hiện các biện pháp bảo mật hợp lý để bảo vệ thông tin cá nhân của bạn khỏi mất mát, truy cập trái phép, sử dụng sai mục đích, tiết lộ, thay đổi và phá hủy. Tuy nhiên, không có phương thức truyền tải qua internet hoặc phương thức lưu trữ điện tử nào là an toàn 100%.</p>
+                <h2>6. Quyền của bạn</h2>
+                <p>Tùy thuộc vào luật pháp hiện hành, bạn có thể có quyền:</p>
+                    <ul>1. Truy cập thông tin cá nhân của bạn</ul>
+                    <ul>2. Sửa đổi hoặc cập nhật thông tin không chính xác</ul>
+                    <ul>3. Xóa thông tin cá nhân của bạn</ul>
+                    <ul>4. Hạn chế hoặc phản đối việc xử lý thông tin của bạn</ul>
+                    <ul>5.Yêu cầu chuyển thông tin của bạn</ul>
+                <h2>7. Thay đổi chính sách bảo mật</h2>
+                <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi quan trọng nào bằng cách đăng thông báo trên trang web của chúng tôi hoặc gửi email thông báo cho bạn.</p>
+            </div>
+        </div>
+            <hr>
+        <div class="end-web">
+            <div class="title-end">
+                <p>FreePhim - Nơi chia sẻ những bộ phim hay nhất, tập trung vào tốc độ cập nhật
+                    , giúp bạn theo dõi phim mới, lịch phát tập và xu hướng đang hot một cách nhanh chóng - thuyết minh ổn định.</p>
+                <br>
+                    <p>Chúng tôi cam kết mang đến trải nghiệm xem phim tốt nhất, với giao diện thân thiện và dễ sử dụng. Hãy cùng khám phá thế giới điện ảnh tại FreePhim!</p>
+                <br>
+                    <p>© 2026 FreePhim. All rights reserved.</p>
+            </div>
+            <div class="support">
+                <h3>Trợ Giúp</h3>
+                <ul>
+                    <li><a href="./TermsOfUse.html">Điều Khoản Sử Dụng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>  
+            </div>
+            <div class="support">
+                <h3>Free Phim</h3>
+                <ul>
+                    <li><a href="./Home.html">Trang chủ</a></li>
+                    <li><a href="./About.html">Giới Thiệu</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+</body>

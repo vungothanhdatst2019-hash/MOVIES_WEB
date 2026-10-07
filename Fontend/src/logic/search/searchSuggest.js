@@ -117,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             searchDropdown.appendChild(item);
         });
-
         searchDropdown.style.display = "block";
     }
     // 5. Đóng khi click ra ngoài

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/container.css">
+        <link rel="stylesheet" type="text/css" href="../css/TermsOfUse.css">
+        <link rel="stylesheet" type="text/css" href="../css/endweb.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/endweb-mobile.css" >
+        <link rel="stylesheet" type="text/css" href="../css/tablet/endweb-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/container-mobile.css">
+        <link rel="stylesheet" type="text/css" href="../css/tablet/container-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/tablet/TermsOfUse-tablet.css">
+        <link rel="stylesheet" type="text/css" href="../css/mobile/TermsOfUse-mobile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../services/movieService.js" defer></script>
+        <script src="../utils/formatters.js" defer></script>    
+        <script src="../utils/dragScroll.js" defer></script>
+        <script src="../logic/search/searchSuggest.js" defer></script>
+        <script src="../logic/home/movieSeries.js" defer></script>
+        <script src="../logic/home/category.js" defer></script>
+        <script src="../logic/home/mobileNav.js" defer></script>
+    </head>
+<body>
+    <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>          
+        </div>  
+        <div class="container">
+            <div class="left-nav">
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <a href="../pages/Home.html">
+                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                </a>
+                <ul class="menu">
+                    <li class="drop-down">
+                        <a href="#">Thể Loại</a>
+                        <ul class="drop-down-menu" id="nav-genre-list">
+                            <li><a href="#">Đang tải...</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="search.html?type=series">Phim Bộ</a></li>
+                    <li><a href="search.html?type=single">Phim Chiếu Rạp</a></li>
+                    <li><a href="search.html?type=anime">Phim Hoạt Hình</a></li>
+                </ul>
+            </div>
+            <div class="right-nav">
+                <form id="search-box" class="search-box-wrapper" onsubmit="return false;">
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="search-dropdown" class="search-dropdown"></div>
+                </form>
+            </div>
+        </div>
+    <div class="frame">
+        <div class="terms-of-use">
+            <h1>Điều Khoản Sử Dụng</h1>
+            <div class="content">
+                <h2>1. Chấp nhận điều khoản</h2>
+                <p>Bằng cách truy cập hoặc sử dụng trang web PhimMoi, bạn đồng ý tuân theo các Điều khoản Sử dụng này. Nếu bạn không đồng ý với bất kỳ phần nào của các điều khoản này, bạn không được phép sử dụng dịch vụ của chúng tôi.</p>
+                <h2>2. Thay đổi điều khoản</h2>
+                <p>Chúng tôi có thể sửa đổi hoặc cập nhật các Điều khoản Sử dụng này theo thời gian mà không cần thông báo trước. Việc bạn tiếp tục sử dụng trang web sau khi thay đổi được đăng tải đồng nghĩa với việc bạn chấp nhận và đồng ý với những thay đổi đó.</p>
+                <h2>3. Tài khoản người dùng</h2>
+                <p>Khi bạn tạo tài khoản với chúng tôi, bạn phải cung cấp thông tin chính xác, đầy đủ và cập nhật. Bạn hoàn toàn chịu trách nhiệm về hoạt động xảy ra dưới tài khoản của mình và phải bảo mật mật khẩu của bạn. Thông báo cho chúng tôi ngay lập tức nếu bạn biết có bất kỳ vi phạm bảo mật nào đối với tài khoản của mình.</p>
+                <h2>4. Quyền sở hữu trí tuệ</h2>
+                <p>Nội dung trang web của chúng tôi đều chia sẽ lại từ các nguồn khác, và không có bản quyền. Nếu người sở hữu nội dung muốn gỡ bỏ nội dung của mình khỏi trang web, vui lòng liên hệ với chúng tôi qua email hoặc thông qua các kênh liên hệ khác được cung cấp trên trang web. Chúng tôi sẽ xem xét yêu cầu của bạn và thực hiện các biện pháp cần thiết để gỡ bỏ nội dung đó trong thời gian sớm nhất có thể.</p>
+                <h2>5. Giới hạn sử dụng</h2>
+                <p>Bạn đồng ý không:</p> 
+                    <ul>1. Sử dụng trang web của chúng tôi theo bất kỳ cách nào có thể gây hại, vô hiệu hóa, quá tải hoặc làm suy yếu trang web</ul>
+                    <ul>2. Sử dụng bất kỳ robot, spider hoặc thiết bị tự động nào khác để truy cập trang web của chúng tôi</ul>
+                    <ul>3. Sử dụng trang web của chúng tôi để truyền tải bất kỳ phần mềm độc hại nào</ul>
+                    <ul>4. Thu thập hoặc theo dõi thông tin cá nhân của người dùng khác</ul>
+                    <ul>5. Cố gắng truy cập trái phép vào bất kỳ phần nào của trang web</ul>
+                    <ul>6. Sử dụng trang web của chúng tôi cho bất kỳ mục đích bất hợp pháp nào</ul>
+                <h2>6. Nội dung người dùng</h2>
+                <p>Bằng cách đăng, tải lên, chia sẻ hoặc cung cấp nội dung trên trang web của chúng tôi, bạn cấp cho chúng tôi quyền không độc quyền, miễn phí bản quyền, có thể chuyển nhượng, có thể cấp phép lại để sử dụng, sao chép, sửa đổi, tạo các tác phẩm phái sinh, phân phối, thực hiện và hiển thị nội dung đó trên, thông qua hoặc liên quan đến trang web.</p>
+                <h2>7. Từ chối bảo đảm</h2>
+                <p>Trang web của chúng tôi được cung cấp "nguyên trạng" và "như có sẵn". PhimMoi từ chối mọi bảo đảm dưới bất kỳ hình thức nào, rõ ràng hay ngụ ý, bao gồm nhưng không giới hạn ở các bảo đảm ngụ ý về tính thương mại, sự phù hợp cho một mục đích cụ thể và không vi phạm.</p>
+                <h2>8. Giới hạn trách nhiệm</h2>
+                <p>Việc tham gia xem phim "Lậu" trên PhimMoi là hoàn toàn tự nguyện và bạn phải tự chịu trách nhiệm về hành động của mình. PhimMoi không chịu trách nhiệm về bất kỳ thiệt hại, mất mát hoặc hậu quả nào phát sinh từ việc bạn sử dụng dịch vụ của chúng tôi. Chúng tôi không đảm bảo rằng nội dung trên trang web là chính xác, đầy đủ hoặc cập nhật. PhimMoi không chịu trách nhiệm về bất kỳ lỗi, thiếu sót hoặc gián đoạn nào trong việc cung cấp dịch vụ hoặc nội dung trên trang web.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="end-web">
+            <div class="title-end">
+                <p>FreePhim - Nơi chia sẻ những bộ phim hay nhất, tập trung vào tốc độ cập nhật
+                    , giúp bạn theo dõi phim mới, lịch phát tập và xu hướng đang hot một cách nhanh chóng - thuyết minh ổn định.</p>
+                <br>
+                    <p>Chúng tôi cam kết mang đến trải nghiệm xem phim tốt nhất, với giao diện thân thiện và dễ sử dụng. Hãy cùng khám phá thế giới điện ảnh tại FreePhim!</p>
+                <br>
+                    <p>© 2026 FreePhim. All rights reserved.</p>
+            </div>
+            <div class="support">
+                <h3>Trợ Giúp</h3>
+                <ul>
+                    <li><a href="./TermsOfUse.html">Điều Khoản Sử Dụng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>  
+            </div>
+            <div class="support">
+                <h3>Free Phim</h3>
+                <ul>
+                    <li><a href="./Home.html">Trang chủ</a></li>
+                    <li><a href="./About.html">Giới Thiệu</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+/* ================================================
+   SEARCH-TABLET.CSS
+   Điều chỉnh trang Tìm Kiếm (lưới phim, phân trang) cho máy tính bảng
+   Áp dụng trong khoảng 768px - 1024px
+   ================================================ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .search-page-container {
+        padding: 16px 20px;
+    }
+
+    .search-title {
+        font-size: 20px;
+    }
+
+    /* Lưới phim: giảm từ 7 cột xuống 4 cột cho vừa màn hình tablet */
+    .movie-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding: 8px 0 24px 0;
+    }
+
+    .movie-info {
+        font-size: 13px;
+    }
+
+    .badge-quality {
+        font-size: 11px;
+        padding: 2px 8px;
+    }
+
+    .filter-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* --- Phân trang --- */
+    .page-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}

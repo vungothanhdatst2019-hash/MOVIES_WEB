@@ -1,0 +1,57 @@
+/* ================================================
+   SEARCH-MOBILE.CSS
+   Điều chỉnh trang Tìm Kiếm (lưới phim, phân trang) cho điện thoại
+   Áp dụng dưới 767px
+   ================================================ */
+@media screen and (max-width: 767px) {
+
+    .search-page-container {
+        padding: 12px 12px 0 12px;
+    }
+
+    .search-title {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    /* Lưới phim: 2 cột cho vừa màn hình điện thoại */
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 6px 0 16px 0;
+    }
+
+    .movie-info {
+        font-size: 12px;
+        padding: 8px 2px 0 2px;
+    }
+
+    .badge-quality {
+        font-size: 10px;
+        padding: 2px 7px;
+        bottom: 6px;
+    }
+
+    .filter-button {
+        padding: 8px 14px;
+        font-size: 14px;
+        width: auto;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* --- Phân trang: thu nhỏ nút, cho cuộn ngang nếu quá nhiều trang --- */
+    .pagination {
+        gap: 6px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+
+    .page-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+}

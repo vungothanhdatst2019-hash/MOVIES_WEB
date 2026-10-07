@@ -4,19 +4,33 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/introduce.css">
+        <link rel="stylesheet" href="../css/load.css">
         <link rel="stylesheet" href="../css/container.css" >
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="../css/tablet/container-tablet.css">
+        <link rel="stylesheet" href="../css/mobile/container-mobile.css">
+        <link rel="stylesheet" href="../css/tablet/introduce-table.css">
+        <link rel="stylesheet" href="../css/mobile/introduce-mobile.css">
+        <link rel="stylesheet" href="../css/endweb.css" >
+        <link rel="stylesheet" href="../css/tablet/endweb-tablet.css">
+        <link rel="stylesheet" href="../css/mobile/endweb-mobile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="../services/movieService.js" defer></script>
         <script src="../logic/home/category.js" defer></script>
         <script src="../logic/introduce/introduce.js" defer></script>
+        <script src="../utils/loader.js" defer></script>
         <script src="../logic/introduce/introducePerformer.js" defer></script>
         <script src="../logic/introduce/introducePerformerAnimations.js" defer></script>
         <script src="../utils/formatters.js" defer></script>
+        <script src="../logic/home/mobileNav.js" defer></script>
+        <script src="../logic/search/searchSuggest.js" defer></script>
+        <script src="../logic/search/searchPage.js" defer></script>
         <title>Giới Thiệu</title>
     </head>
 <body>
+        <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>
+        </div>
         <div class="container">
             <div class="left-nav">
                 <div class="menu-toggle" id="mobile-menu">
@@ -38,10 +52,10 @@
                 </ul>
             </div>
             <div class="right-nav">
-                <form action="#" id="search-box" >
-                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text">
-                <button type="submit" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </input>
+                <form id="search-box" class="search-box-wrapper" onsubmit="return false;">
+                <input type="text" placeholder="Tìm kiếm..." class="search-bar" id="search-text" autocomplete="off">
+                <button type="button" class="search-icon" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="search-dropdown" class="search-dropdown"></div>
                 </form>
             </div>
         </div>
@@ -101,5 +115,32 @@
             </div>
         </div>
     </main>
+    <hr>
+        <div class="end-web">
+            <div class="title-end">
+                <p>FreePhim - Nơi chia sẻ những bộ phim hay nhất, tập trung vào tốc độ cập nhật
+                    , giúp bạn theo dõi phim mới, lịch phát tập và xu hướng đang hot một cách nhanh chóng - thuyết minh ổn định.</p>
+                <br>
+                    <p>Chúng tôi cam kết mang đến trải nghiệm xem phim tốt nhất, với giao diện thân thiện và dễ sử dụng. Hãy cùng khám phá thế giới điện ảnh tại FreePhim!</p>
+                <br>
+                    <p>© 2026 FreePhim. All rights reserved.</p>
+            </div>
+            <div class="support">
+                <h3>Trợ Giúp</h3>
+                <ul>
+                    <li><a href="./TermsOfUse.html">Điều Khoản Sử Dụng</a></li>
+                    <li><a href="./PrivacyPolicy.html">Chính sách bảo mật</a></li>
+                </ul>  
+            </div>
+            <div class="support">
+                <h3>Free Phim</h3>
+                <ul>
+                    <li><a href="./Home.html">Trang chủ</a></li>
+                    <li><a href="./About.html">Giới Thiệu</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
 </body>         
 </html>

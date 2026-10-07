@@ -1,0 +1,36 @@
+/* ================================================
+   TERMSOFUSE-MOBILE.CSS
+   Điều chỉnh trang Điều Khoản Sử Dụng cho điện thoại
+   Áp dụng dưới 767px
+   ================================================ */
+@media screen and (max-width: 767px) {
+
+    /* Bản gốc width:50% quá hẹp trên điện thoại -> cho gần full màn hình */
+    .terms-of-use {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .terms-of-use h1 {
+        font-size: 22px;
+        margin-top: 24px;
+        line-height: 1.3;
+    }
+
+    .content h2 {
+        font-size: 17px;
+        margin-top: 22px;
+    }
+
+    .content p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0 20px 0;
+    }
+
+    .content ul {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+}

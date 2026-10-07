@@ -1,0 +1,29 @@
+@media screen and (max-width: 767px) {
+   .end-web{
+    color:  #94a3b8;
+    display: block;
+   }
+   .title-end{
+    width: 94%;
+    font-size: 14px;
+   }
+   .support{
+    margin-left: 10px;
+    font-size: 14px;
+    color: aliceblue;
+   }
+   .support li{
+      padding-bottom: 10px;
+      font-family: times new roman, sans-serif;
+      list-style: none;
+   }
+   .support a {
+        text-decoration: none;
+        color:  #94a3b8;
+    }
+    hr{
+      border: 0;
+      height: 1px;
+      background-color: #0b1120;
+    }
+}

@@ -1,0 +1,32 @@
+/* ================================================
+   PRIVACYPOLIVY-TABLE.CSS
+   Điều chỉnh trang Chính Sách Bảo Mật cho máy tính bảng
+   Áp dụng trong khoảng 768px - 1024px
+   ================================================ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* Bản gốc width:50% quá hẹp trên tablet -> nới rộng ra */
+    .privacy-policy {
+        width: 85%;
+    }
+
+    .privacy-policy h1 {
+        font-size: 28px;
+        margin-top: 40px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    .content p {
+        font-size: 16px;
+        margin: 14px 14px 28px 0px;
+    }
+
+    .content ul {
+        font-size: 16px;
+        margin-top: 14px;
+    }
+}

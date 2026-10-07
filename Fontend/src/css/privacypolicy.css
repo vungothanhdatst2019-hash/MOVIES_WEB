@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1a2332;
+}
+.frame{
+    height: 90%;
+    width: 100%;
+}
+.privacy-policy{
+    width: 50%;
+    margin: auto;
+}
+.privacy-policy h1{
+    text-align: center;
+    color: aliceblue;
+    margin-top: 60px;
+}
+.content{
+    color: aliceblue;
+}
+.content p{
+    font-size: 20px;
+    margin: 20px 20px 40px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #94a3b8;
+}
+.content h2{
+    margin-top: 40px;
+}
+.content ul{
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color:#94a3b8
+}   

@@ -33,7 +33,7 @@ async function initHomePage() {
             if (typeof Loader !== "undefined") {
                 Loader.hide();
             }
-        }, 500);
+        }, 700); 
     }
     loadNavGenres(); // Nạp danh sách thể loại vào menu
     try {

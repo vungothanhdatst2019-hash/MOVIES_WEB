@@ -1,0 +1,90 @@
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+ 
+    /* Giảm padding trái của các section cho vừa màn hình hẹp hơn */
+    .movie-section {
+        padding: 20px 16px 0 16px;
+    }
+ 
+    /* --- Grid phim poster (Phim mới đề cử / Có thể bạn cũng thích) --- */
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 14px;
+        padding: 14px 0;
+    }
+ 
+    .movie-card {
+        flex: 0 0 130px;
+        max-width: 130px;
+    }
+ 
+    .poster-wrapper {
+        height: 190px;
+    }
+ 
+    .movie-title {
+        font-size: 13px;
+    }
+ 
+    .movie-category {
+        font-size: 11px;
+    }
+ 
+    /* --- Header của các section (tiêu đề + tabs lọc) --- */
+    .section-header,
+    .section-header-single,
+    .section-header-anime {
+        gap: 10px;
+    }
+ 
+    .section-title {
+        font-size: 19px;
+    }
+ 
+    .header-left {
+        gap: 12px;
+    }
+ 
+    .filter-tabs {
+        gap: 6px;
+    }
+ 
+    .tab-btn,
+    .view-all-btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+ 
+    /* --- Grid phim bộ / phim chiếu rạp / anime (featured-series-grid) --- */
+    /* Hero (thẻ đầu) chiếm trọn chiều ngang ở hàng đầu, các thẻ còn lại xếp lưới 3 cột bên dưới */
+    .featured-series-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 350px;  /* Chiều cao riêng cho hàng hero */
+        grid-auto-rows: 140px;      /* Chiều cao các hàng thẻ nhỏ bên dưới */
+        gap: 10px;
+    }
+ 
+    .featured-series-grid .movie-card:first-child {
+        grid-column: 1 / -1;  /* Chiếm trọn cả 3 cột */
+        grid-row: auto;       /* Bỏ kiểu chiếm 2 hàng dọc như bản desktop */
+    }
+ 
+    .card-title-main {
+        font-size: 12px;
+    }
+ 
+    .featured-series-grid .movie-card:first-child .card-title-main {
+        font-size: 18px;
+        white-space: normal;
+    }
+ 
+    .featured-series-grid .movie-card:first-child .card-title-sub {
+        font-size: 12px;
+    }
+ 
+    .badge-episode,
+    .badge-sub,
+    .card-year {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+}

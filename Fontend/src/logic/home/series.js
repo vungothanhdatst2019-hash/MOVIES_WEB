@@ -61,9 +61,6 @@ async function loadSeriesMovies(page = 1) {
         container.innerHTML = `<p style="color: white; text-align: center;">Lỗi tải dữ liệu. Vui lòng thử lại sau!</p>`;
     }
 }
-/**
- * Khởi chạy an toàn chống lỗi trễ khi F5
- */
 function safeInitSeries() {
     if (document.readyState === "complete" || document.readyState === "interactive") {
         loadSeriesMovies(1);

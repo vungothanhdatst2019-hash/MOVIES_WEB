@@ -1,0 +1,70 @@
+/* ================================================
+   FILTER-MOBILE.CSS
+   Điều chỉnh Modal Bộ Lọc cho điện thoại
+   Áp dụng dưới 767px
+   ================================================ */
+@media screen and (max-width: 767px) {
+
+    .filter-modal-content {
+        width: 92%;
+        max-width: none;
+        margin: 6% auto;
+        padding: 14px;
+        max-height: 88vh;
+        overflow-y: auto;
+    }
+
+    .filter-modal-header h2 {
+        font-size: 17px;
+    }
+
+    .close-modal-btn {
+        font-size: 24px;
+    }
+
+    .filter-modal-body {
+        max-height: none;
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    /* Mỗi dòng filter: chuyển nhãn lên trên, lựa chọn xuống dưới cho dễ chạm */
+    .filter-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .filter-label {
+        min-width: auto;
+        font-size: 13px;
+        padding-top: 0;
+    }
+
+    .filter-options {
+        gap: 6px;
+        width: 100%;
+    }
+
+    .filter-option {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    /* Nút hành động: xếp đều 2 bên, full width */
+    .filter-actions,
+    .filter-modal-footer {
+        flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-filter-submit,
+    .btn-filter-reset {
+        flex: 1;
+        padding: 10px 0;
+        font-size: 13px;
+        text-align: center;
+    }
+}

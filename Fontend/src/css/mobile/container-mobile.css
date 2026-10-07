@@ -1,0 +1,160 @@
+@media screen and (max-width: 767px) {
+ 
+    .container {
+        height: auto;
+        min-height: 56px;
+        padding: 8px 12px;
+        align-items: center;
+        background-color: #0b1120;
+    }
+    /* --- Bên trái: hamburger + logo --- */
+    .left-nav {
+        padding: 0;
+        gap: 10px;
+        flex: 1;
+    }
+    /* Hiện icon hamburger (mặc định đang display:none trong container.css) */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #ffffff;
+        order: -1; /* Luôn nằm ngoài cùng bên trái */
+    }
+    .left-nav img.logo {
+        width: 120px;
+        height: auto;
+    }
+    /* Ẩn menu chữ (Thể Loại / Phim Bộ / ...) trên mobile,
+       sẽ hiện dạng menu trượt khi bấm hamburger (cần JS phối hợp) */
+    .left-nav > ul.menu {
+        display: none;
+    }
+    /* --- Bên phải: chỉ còn icon tìm kiếm --- */
+    .right-nav {
+        margin-right: 0;
+    }
+    #search-box {
+        background-color: transparent;
+        padding: 0;
+    }
+    /* Ẩn ô nhập liệu, chỉ để lại icon kính lúp cho gọn */
+    #search-box #search-text {
+        display: none;
+    }
+    #search-box.active #search-text,
+    #search-box:focus-within #search-text {
+        width: 0;
+        padding: 0;
+    }
+    #search-box #search-icon {
+        color: #ffffff;
+        font-size: 18px;
+        width: 36px;
+        height: 36px;
+    }
+    .search-dropdown {
+        width: 92vw;
+        right: -8px;
+    }
+    /* --- Menu trượt khi bấm nút hamburger --- */
+    .left-nav > ul.menu.mobile-menu-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 56px);
+        background-color: #0b1120;
+        padding: 20px;
+        gap: 20px;
+        z-index: 40;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+    }
+    .container.mobile-search-mode .right-nav {
+        flex: 1;
+        justify-content: center;
+        margin-right: 0;
+    }
+    /* --- Ô tìm kiếm dạng viên thuốc nền tối, nằm ngay trong thanh navbar, chiếm ~65% --- */
+    #search-box.mobile-search-open {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: static;
+        width: 80%;
+        background-color: white;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 25px;
+        padding: 8px 14px;
+    }
+    #search-box.mobile-search-open #search-icon {
+        color: black;
+        width: auto;
+        height: auto;
+        font-size: 15px;
+        background: transparent;
+    }
+    #search-box.mobile-search-open #search-text {
+        display: block;
+        flex: 1;
+        width: 60% !important;
+        background: transparent;
+        color: black;
+        font-size: 14px;
+    }
+    #search-box.mobile-search-open #search-text::placeholder {
+        color: black;
+    }
+    /* --- Panel "Thể Loại" dạng 2 cột, bấm để mở/đóng (giống ảnh mẫu) --- */
+    /* Tắt hiệu ứng hover gốc (không phù hợp cảm ứng), thay bằng class .open do JS gắn */
+    .left-nav .drop-down:hover .drop-down-menu {
+        display: none !important;
+    }
+    .left-nav .drop-down > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 4px 0;
+        font-size: 16px !important;
+    }
+    /* Icon mũi tên, xoay khi mở */
+    .left-nav .drop-down > a::after {
+        content: "\f078";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 10px;
+        transition: transform 0.25s ease;
+    }
+    .left-nav .drop-down.open > a::after {
+        transform: rotate(180deg);
+    }
+    .left-nav .drop-down.open .drop-down-menu {
+        display: grid !important;
+        position: static !important;
+        width: 100% !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-auto-flow: row !important;
+        grid-template-rows: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 14px 0 0 4px !important;
+        gap: 14px 16px !important;
+    }
+    .left-nav .drop-down.open .drop-down-menu li a {
+        font-size: 15px !important;
+        color: #cbd5e1 !important;
+        padding: 0 !important;
+        font-weight: 400 !important;
+    }
+    .left-nav .drop-down.open .drop-down-menu li a:hover {
+        color: #ffffff !important;
+        background-color: transparent !important;
+    }
+}

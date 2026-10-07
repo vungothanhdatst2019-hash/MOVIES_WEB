@@ -1,0 +1,39 @@
+.end-web{
+    color:  #94a3b8;
+    display: flex;
+}
+.title-end{
+    font-size: 17px;
+    font-weight: 400;
+    width: 70%;
+    font-family: times new roman, sans-serif;
+    padding: 20px 0 0 20px;
+}
+.support{
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0 20px 40px;
+}
+.support h3{
+    color: #ffffff;
+    padding-bottom: 15px;
+    margin-top: 20px;
+}
+.support li{
+    font-weight: 400;
+    font-family: times new roman, sans-serif;
+    list-style: none;
+    padding-bottom: 15px;
+}
+.support a{
+    text-decoration: none;
+    color: #94a3b8;
+}
+.support a:hover{
+    color: #ffffff;
+}
+hr{
+    border: 0;
+    height: 1px;
+    background-color: #0b1120;
+}

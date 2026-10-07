@@ -5,7 +5,11 @@
 async function initIntroducePage() {
     const urlParams = new URLSearchParams(window.location.search);
     const movieId = urlParams.get("id") || "1";
-
+    setTimeout(() => {
+            if (typeof Loader !== "undefined") {
+                Loader.hide();
+            }
+        }, 400);
     try {
         const movie = await getMovieById(movieId);
         if (!movie) return;
@@ -42,6 +46,8 @@ async function initIntroducePage() {
 
         // 🌟 6. Hiển thị danh sách diễn viên từ trường performer
         renderPerformers(movie.performer);
+        // 7. gọi hàm hiển thị search 
+        renderDropdown(movies);
 
     } catch (error) {
         console.error("❌ Lỗi nạp dữ liệu trang introduce:", error);

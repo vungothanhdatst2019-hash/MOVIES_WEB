@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" >
-    <link rel="stylesheet" type="text/css" href="../css/container.css" >
-    <link rel="stylesheet" type="text/css" href="../css/load.css" >
+    <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <link rel="stylesheet" type="text/css" href="/css/container.css" >
+    <link rel="stylesheet" type="text/css" href="/css/load.css" >
+    <link rel="stylesheet" type="text/css" href="/css/endweb.css" >
+    <link rel="stylesheet" type="text/css" href="/css/banner.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablet/load-tablet.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablet/styletablet.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablet/container-tablet.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablet/banner-tablet.css">
+    <link rel="stylesheet" type="text/css" href="/css/tablet/endweb-tablet.css">
+    <link rel="stylesheet" type="text/css" href="/css/mobile/container-mobile.css">
+    <link rel="stylesheet" type="text/css" href="/css/mobile/banner-mobile.css">
+    <link rel="stylesheet" type="text/css" href="/css/mobile/style-mobile.css">
+    <link rel="stylesheet" type="text/css" href="/css/mobile/endweb-mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../utils/loader.js" defer></script>
-    <script src="../services/movieService.js" defer></script>
-    <script src="../logic/home/banner.js" defer></script>
-    <script src="../logic/home/bannerSlide.js" defer></script>
-    <script src="../logic/home/category.js" defer></script>
-    <script src="../logic/home/home_list.js" defer></script>
-    <script src="../components/movieCard.js" defer></script>
-    <script src="../logic/home/movieSeries.js" defer></script>
-    <script src="../logic/home/movieSingleCategory.js" defer></script>
-    <script src="../logic/home/movieAnimeCategory.js" defer></script>
-    <script src="../logic/home/movieListNew.js" defer></script>
-    <script src="../utils/formatters.js" defer></script>    
-    <script src="../utils/dragScroll.js" defer></script>
-    <script src="../logic/search/searchSuggest.js" defer></script>
+    <script src="/utils/blod.js" defer></script>
+    <script src="/utils/loader.js" defer></script>
+    <script src="/services/movieService.js" defer></script>
+    <script src="/logic/home/banner.js" defer></script>
+    <script src="/logic/home/bannerSlide.js" defer></script>
+    <script src="/logic/home/category.js" defer></script>
+    <script src="/logic/home/home_list.js" defer></script>
+    <script src="/components/movieCard.js" defer></script>
+    <script src="/logic/home/movieSeries.js" defer></script>
+    <script src="/logic/home/movieSingleCategory.js" defer></script>
+    <script src="/logic/home/movieAnimeCategory.js" defer></script>
+    <script src="/logic/home/movieListNew.js" defer></script>
+    <script src="/utils/formatters.js" defer></script>    
+    <script src="/utils/dragScroll.js" defer></script>
+    <script src="/logic/search/searchSuggest.js" defer></script>
+    <script src="/logic/home/mobileNav.js" defer></script>
+    <script src="/logic/home/bannerMobile.js" defer></script>
 </head>
 
-<body>
-        <div class="loader-wrapper" id="loading-screen">
-            <div class="loader"></div>          
+<body>    
+    <div class="loader-wrapper" id="loading-screen">
+            <div class="loader"></div>      
         </div>  
         <div class="container">
             <div class="left-nav">
@@ -35,7 +49,7 @@
                     <i class="fa-solid fa-bars"></i>
                 </div>
                 <a href="../pages/Home.html">
-                    <img src="../image/Logo.png" alt="Logo" class="logo">
+                    <img Blod src="../image/Logo.png" alt="Logo" class="logo">
                 </a>
                 <ul class="menu">
                     <li class="drop-down">
@@ -88,7 +102,6 @@
                     <a href="#" id="banner-info-btn" class="btn-circle btn-info" title="Chi tiết">
                         <i class="fa-solid fa-circle-info"></i>
                     </a>
-                    </button>
                 </div>
         </div>
 
@@ -183,15 +196,15 @@
             <div class="support">
                 <h3>Trợ Giúp</h3>
                 <ul>
-                    <li><a href="#">Hướng dẫn sử dụng</a></li>
-                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="./TermsOfUse.html">Điều Khoản Sử Dụng</a></li>
+                    <li><a href="./PrivacyPolicy.html">Chính sách bảo mật</a></li>
                 </ul>  
             </div>
             <div class="support">
                 <h3>Free Phim</h3>
                 <ul>
                     <li><a href="./Home.html">Trang chủ</a></li>
-                    <li><a href="./About.html">Giới Thiệu</a></li>
+                    <li><a href="./PageIntroduction.html">Giới Thiệu</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
