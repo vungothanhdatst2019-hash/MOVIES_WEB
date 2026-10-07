@@ -1,6 +1,6 @@
 /** * File: js/services/movieService.js
  * Chức năng: Quản lý toàn bộ yêu cầu API liên quan đến Phim*/
-const API_BASE_URL = "http://localhost:5000/api/movies";
+const API_BASE_URL = "/api/movies";
 /*** Lấy danh sách tất cả phim cho trang Home*/
 async function getAllMovies() {
     try {
