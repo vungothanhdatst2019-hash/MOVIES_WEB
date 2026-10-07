@@ -25,7 +25,7 @@ async function getMovieById(id) {
 }
 async function getFilterOptions() {
     try {
-        const response = await fetch('http://localhost:5000/api/movies/filter-options');
+        const response = await fetch('/api/movies/filter-options');
         const resData = await response.json(); 
         if (resData.success) {
             return resData.data; // Trả về { genres: [...], countries: [...], years: [...] }
