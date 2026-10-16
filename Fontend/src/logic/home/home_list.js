@@ -2,6 +2,7 @@
  * File: logic/home/home_list.js
  * Hiển thị danh sách phim và khởi chạy trang chủ
  */
+const MAX_LOADING_WAIT_MS = 6000;
 // Hiển thị danh sách các phim ra khung container
 function renderMovieList(movies, container) {
     container.innerHTML = ""; // Xóa nội dung cũ
