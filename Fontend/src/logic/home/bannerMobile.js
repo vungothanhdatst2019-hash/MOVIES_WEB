@@ -1,7 +1,6 @@
 function renderHeroBanner(featuredMovies) {
     if (!featuredMovies || featuredMovies.length === 0) return;
     let currentIndex = 0;
-    let autoPlayTimer = null;
 
     const resolvePoster = (m) => (typeof getPosterUrl === "function"
         ? getPosterUrl(m)
@@ -175,16 +174,10 @@ function renderHeroBanner(featuredMovies) {
             thumbsContainer.appendChild(img);
         });
     }
-    if (autoPlayTimer) clearInterval(autoPlayTimer);
-    autoPlayTimer = setInterval(() => {
-        if (!window.isMobileNavOpen) { // Chỉ chuyển khi Menu/Search không mở
-            updateBanner(currentIndex + 1);
-        }
-    }, 7000);
+    // Tự động chuyển slide do bannerSlide.js đảm nhiệm (tránh 2 bộ hẹn giờ chạy song song)
 
     window.addEventListener("resize", () => {
         updateBanner(currentIndex);
     });
-
     updateBanner(0);
 }
