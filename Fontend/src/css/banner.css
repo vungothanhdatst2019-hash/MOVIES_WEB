@@ -61,7 +61,11 @@
     gap: 10px;
     margin-bottom: 12px;
 }
-
+.banner-tags{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
 .badge-year {
     background: rgba(255, 255, 255, 0.2);
     padding: 2px 8px;

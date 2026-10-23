@@ -42,8 +42,6 @@ function resolveCategories(movie) {
     const categories = Array.isArray(movie.category) ? movie.category : [movie.category || "Phim"];
     return categories.slice(0, 3);
 }
-
-
 /* ============================================================
  * BANNER DESKTOP
  * ============================================================ */
@@ -172,7 +170,6 @@ function createMobileBadge(text, extraClass = "") {
 function updateMobileBadges(movie) {
     const badgesEl = document.getElementById("mobile-banner-badges");
     if (!badgesEl) return;
-
     badgesEl.innerHTML = "";
     const year = movie.year || "";
     const dubSub = resolveDubSubInfo(movie);

@@ -2,9 +2,7 @@
  * File: logic/home/home_list.js
  * Hiển thị danh sách phim và khởi chạy trang chủ
  */
-
 const MAX_LOADING_WAIT_MS = 6000; // Tối đa chờ ảnh banner, quá thời gian này vẫn tắt loading để không treo trang
-
 // Hiển thị danh sách các phim ra khung container
 function renderMovieList(movies, container) {
     if (!container) return;
@@ -19,7 +17,6 @@ function renderMovieList(movies, container) {
     });
     container.appendChild(fragment);
 }
-
 /** Tải trước 1 ảnh; luôn resolve (kể cả lỗi/timeout) để không làm kẹt màn hình loading */
 function preloadImage(url, timeoutMs = MAX_LOADING_WAIT_MS) {
     return new Promise(resolve => {
@@ -63,7 +60,7 @@ function initRecommendedList(movies) {
     const container = document.getElementById("movie-list");
     if (!container) return;
     if (typeof enableDragScroll === "function") enableDragScroll(container);
-    renderMovieList(movies.slice(0, 11), container);
+    renderMovieList(movies.slice(0, 13), container);
 }
 
 /** Khởi chạy các section bên dưới (phim bộ, chiếu rạp, hoạt hình, gợi ý) */

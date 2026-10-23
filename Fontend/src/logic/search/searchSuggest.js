@@ -16,31 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => { allMovies = data || []; })
             .catch(err => console.error("Lỗi lấy phim:", err));
     }
+    // Tiền tố đường dẫn tới thư mục pages: để trống nếu đang ở trong /pages/, ngược lại (vd trang chủ "/") thêm "pages/"
+    function getPagesPrefix() {
+        return window.location.pathname.includes("/pages/") ? "" : "pages/";
+    }
     // 🌟 Hàm điều hướng chuẩn xác 100% không dính dấu #
     function navigateToMovie(movieId) {
         if (!movieId) return;
-        const currentPath = window.location.pathname;
-        // Nếu ĐANG Ô TRANG XEM PHIM -> Chuyển hướng lại trang watch với ID mới
-        if (currentPath.endsWith("introduce.html")) {
+        // Nếu ĐANG Ở TRANG XEM PHIM -> Chuyển hướng lại trang watch với ID mới
+        if (window.location.pathname.endsWith("introduce.html")) {
             window.location.assign(`watch.html?id=${movieId}`);
             return;
         }
         // Nếu ĐANG Ở TRANG KHÁC (Trang chủ...)
-        if (currentPath.includes("/pages/")) {
-            window.location.assign(`introduce.html?id=${movieId}`);
-        } else {
-            window.location.assign(`pages/introduce.html?id=${movieId}`);
-        }
+        window.location.assign(`${getPagesPrefix()}introduce.html?id=${movieId}`);
     }
     function redirectToSearchPage(keyword) {
         if (!keyword) return;
-        const currentPath = window.location.pathname;
-        const searchUrl = `pages/search.html?q=${encodeURIComponent(keyword)}`;
-        if (currentPath.includes("/pages/")) {
-            window.location.assign(`search.html?q=${encodeURIComponent(keyword)}`);
-        } else {
-            window.location.assign(`pages/search.html?q=${encodedKeyword}`);
-        }
+        const encodedKeyword = encodeURIComponent(keyword);
+        window.location.assign(`${getPagesPrefix()}search.html?q=${encodedKeyword}`);
     }
     // 1. Click nút Kính lúp
     if (searchIcon) {
