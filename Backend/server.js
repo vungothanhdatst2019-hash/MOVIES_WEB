@@ -24,7 +24,7 @@ app.use('/api/movies', movieRoutes);
 
 // 4. Route cho trang chủ "/"
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/pages/Home.html'));
+  res.sendFile(path.join(__dirname, '../Fontend/src/pages/Home.html'));
 });
 
 // 5. Route tĩnh xử lý file HTML trang con (như /introduce.html, /detail.html)
